@@ -4,8 +4,11 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkLowLevel.MotorType;
-import com.revrobotics.CANSparkMax;
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkFlex;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkClosedLoopController;
+
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -14,7 +17,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class intakerollers extends SubsystemBase {
   public double rollerSpeed = 1;
-  private CANSparkMax rollerSparkMax = new CANSparkMax(MechanismConstants.krollerShooterPort, MotorType.kBrushless);
+  private SparkLowLevel rollerSparkMax = new CANSparkMax(MechanismConstants.krollerShooterPort, MotorType.kBrushless);
   
    public intakerollers() {
 

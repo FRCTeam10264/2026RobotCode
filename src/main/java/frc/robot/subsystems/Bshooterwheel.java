@@ -6,7 +6,7 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkLowLevel.MotorType
 
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -15,22 +15,22 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MechanismConstants;
 
 
-public class Index extends SubsystemBase {
-  public double indexSpeed = 1;
-  private CANSparkMax indexSparkMax = new CANSparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
+public class Bshooterwheel extends SubsystemBase {
+  public double flywheelSpeed = 1;
+  private CANSparkMax flywheelSparkMax = new CANSparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
   
-   public Index() {
+   public Bshooterwheel() {
 
   }
 
-  public void indexRun(double speed) {
-    indexSparkMax.set(speed);
+  public void BshooterwheelRun(double speed) {
+    BshooterwheelSparkMax.set(speed);
   }
 
-  public void indexOut(double speed) {
-    indexSparkMax.set(-speed);
+  public void BshooterwheelOut(double speed) {
+    BshooterwheelSparkMax.set(-speed);
   }
 
-  public void indexStop() {
-    indexSparkMax.stopMotor();
+  public void BshooterwheelStop() {
+    BshooterwheelSparkMax.stopMotor();
   }

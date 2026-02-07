@@ -15,22 +15,22 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MechanismConstants;
 
 
-public class Index extends SubsystemBase {
-  public double indexSpeed = 1;
-  private CANSparkMax indexSparkMax = new CANSparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
+public class flywheel extends SubsystemBase {
+  public double flywheelSpeed = 1;
+  private CANSparkMax flywheelSparkMax = new CANSparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
   
-   public Index() {
+   public flywheel() {
 
   }
 
-  public void indexRun(double speed) {
-    indexSparkMax.set(speed);
+  public void flywheelRun(double speed) {
+    flywheelSparkMax.set(speed);
   }
 
-  public void indexOut(double speed) {
-    indexSparkMax.set(-speed);
+  public void flywheelOut(double speed) {
+    flywheelSparkMax.set(-speed);
   }
 
-  public void indexStop() {
-    indexSparkMax.stopMotor();
+  public void flywheelStop() {
+    flywheelSparkMax.stopMotor();
   }

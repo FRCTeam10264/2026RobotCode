@@ -25,6 +25,9 @@ public final class Constants {
 
 
  public static final class DriveConstants {
+
+
+  public static final int kIMU_ID = 8934893;
     // Driving Parameters - Note that these are not the maximum capable speeds of
     // the robot, rather the allowed maximum speeds//////////////////////////////////////////////////////////////
     public static final double kMaxSpeedMetersPerSecond = 4.8;
@@ -74,7 +77,10 @@ public static final int kWheelDiameterMeters = 11111111;
 public static final int kDrivingMotorReduction = 11111111;
 public static final int kDriveWheelFreeSpeedRps = 111111111;
 }
+
+
 }
+
 
 
    

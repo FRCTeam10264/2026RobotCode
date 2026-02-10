@@ -11,7 +11,9 @@ import edu.wpi.first.wpilibj.ADIS16470_IMU;
 import edu.wpi.first.wpilibj.ADIS16470_IMU.IMUAxis;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 import frc.robot.Constants.DriveConstants;
+import com.ctre.phoenix6.hardware.Pigeon2;
 
 public class DriveSubsystem extends SubsystemBase
     {
@@ -45,7 +47,7 @@ public class DriveSubsystem extends SubsystemBase
             DriveConstants.kBackRightChassisAngularOffset
         );
     
-    private final ADIS16470_IMU m_gyro = new ADIS16470_IMU();
+  public final static Pigeon2 m_gyro = new Pigeon2(Constants.DriveConstants.kIMU_ID);
 
 SwerveDriveOdometry m_odometry = new SwerveDriveOdometry
     (

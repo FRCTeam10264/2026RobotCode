@@ -4,9 +4,10 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkLowLevel.MotorType;
-import com.revrobotics.CANSparkMax;
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkClosedLoopController;
 
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -17,7 +18,7 @@ import frc.robot.Constants.MechanismConstants;
 
 public class Index extends SubsystemBase {
   public double indexSpeed = 1;
-  private CANSparkMax indexSparkMax = new CANSparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
+  private SparkMax indexSparkMax = new SparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
   
    public Index() {
 
@@ -34,3 +35,4 @@ public class Index extends SubsystemBase {
   public void indexStop() {
     indexSparkMax.stopMotor();
   }
+}

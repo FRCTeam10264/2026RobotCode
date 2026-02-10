@@ -4,10 +4,10 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkLowLevel.MotorType;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.spark.SparkLowLevel.MotorType
-
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkFlex;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkClosedLoopController;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -16,8 +16,8 @@ import frc.robot.Constants.MechanismConstants;
 
 
 public class shooterwheelB extends SubsystemBase {
-  public double flywheelSpeed = 1;
-  private CANSparkMax flywheelSparkMax = new CANSparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
+  public double shooterwheelBSpeed = 1;
+  private SparkMax shooterwheelBSparkMax = new SparkMax(MechanismConstants.kBrollersshooterPort, MotorType.kBrushless);
   
    public shooterwheelB() {
 
@@ -34,3 +34,4 @@ public class shooterwheelB extends SubsystemBase {
   public void BshooterwheelStop() {
     shooterwheelBSparkMax.stopMotor();
   }
+}

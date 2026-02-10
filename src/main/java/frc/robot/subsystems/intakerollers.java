@@ -13,11 +13,11 @@ import com.revrobotics.spark.SparkClosedLoopController;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
+import frc.robot.Constants.MechanismConstants;
 
 public class intakerollers extends SubsystemBase {
   public double rollerSpeed = 1;
-  private SparkLowLevel rollerSparkMax = new CANSparkMax(MechanismConstants.krollerShooterPort, MotorType.kBrushless);
+  private SparkMax rollerSparkMax = new SparkMax(MechanismConstants.kintakerollersPort, MotorType.kBrushless);
   
    public intakerollers() {
 

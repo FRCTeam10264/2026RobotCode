@@ -18,7 +18,7 @@ import frc.robot.Constants.MechanismConstants;
 
 public class Intakepivot extends SubsystemBase {
   public double IntakepivotSpeed = 1;
-  private SparkMax IntakepivotSparkMax = new SparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
+  private SparkMax IntakepivotSparkMax = new SparkMax(MechanismConstants.kintakepivotPort, MotorType.kBrushless);
   
    public Intakepivot() {
 
@@ -35,3 +35,4 @@ public class Intakepivot extends SubsystemBase {
   public void IntakepivotStop() {
     IntakepivotSparkMax.stopMotor();
   }
+}

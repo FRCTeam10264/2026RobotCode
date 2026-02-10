@@ -16,7 +16,7 @@ public class shooterH extends Command{
 
     @Override
     public void execute() {
-         m_bshooterH.BshooterwheelRun(-m_bshooterH.flywheelSpeed);
+         m_bshooterH.BshooterwheelRun(-m_bshooterH.shooterwheelBSpeed);
     }
 
     @Override

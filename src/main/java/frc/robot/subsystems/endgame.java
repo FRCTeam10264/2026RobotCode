@@ -18,7 +18,7 @@ import frc.robot.Constants.MechanismConstants;
 
 public class endgame extends SubsystemBase {
   public double endgameSpeed = 1;
-  private SparkMax endgameSparkMax = new SparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
+  private SparkMax endgameSparkMax = new SparkMax(MechanismConstants.kendgamePort, MotorType.kBrushless);
   
    public endgame() {
 
@@ -35,3 +35,4 @@ public class endgame extends SubsystemBase {
   public void endgameStop() {
     endgameSparkMax.stopMotor();
   }
+}

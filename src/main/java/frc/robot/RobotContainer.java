@@ -11,7 +11,8 @@ import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-
+import frc.robot.subsystems.*;
+import frc.robot.commands.*;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -23,8 +24,11 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  private final  CommandXboxController m_CoDriverController = new CommandXboxController(1)
+  private final  CommandXboxController m_DriverController = new CommandXboxController(0)
+
+
+
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -42,13 +46,22 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
+  
 
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+  
+    m_DriverController.a().whileTrue(m_index.indexRun());
+    m_DriverController.a().whileTrue(m_bshooterH.BshooterwheelRun());
+    m_DriverController.a().whileTrue(m_intake.rollerrun());
+    m_DriverController.a().whileTrue(m_Intakepivot.IntakepivotRun());
+    m_DriverController.a().whileTrue(m_Intakepivot.IntakepivotOut());
+    m_DriverController.a().whileTrue(m_Flywheel.flywheelRun());
+    m_CoDriverController.a().whileTrue(m_endgame.endgameRun());
+    m_CoDriverController.a().whileTrue(m_endgame.endgameOut());
+
+
+    
+
+    m_CoDriverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
   }
 
   /**
@@ -61,3 +74,13 @@ public class RobotContainer {
     return Autos.exampleAuto(m_exampleSubsystem);
   }
 }
+
+
+
+
+
+
+
+
+
+

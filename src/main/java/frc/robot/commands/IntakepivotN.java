@@ -20,6 +20,12 @@ public class IntakepivotN extends Command{
     }
 
     @Override
+// double cheak this is how this works
+      public void execute() {
+         m_Intakepivot.IntakepivotOut(-m_Intakepivot.IntakepivotSpeed);
+    }
+
+    @Override
     public void end(boolean interrupted) {
          m_Intakepivot.IntakepivotStop();
     }

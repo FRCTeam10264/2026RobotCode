@@ -78,6 +78,13 @@ public static final int kDrivingMotorReduction = 11111111;
 public static final int kDriveWheelFreeSpeedRps = 111111111;
 }
 
+public static final class speeds 
+public static final int indexSpeed = .2
+public static final int flywheelSpeed = .2
+public static final int rollerSpeed = .2
+public static final int IntakepivotSpeed = .2
+public static final int shooterwheelBSpeed = .2
+public static final int endgameSpeed = .2
 
 }
 

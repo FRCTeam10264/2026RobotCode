@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.subsystems.*;
 import frc.robot.commands.*;
+import frc.robot.Constants;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -24,8 +25,8 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final  CommandXboxController m_CoDriverController = new CommandXboxController(1)
-  private final  CommandXboxController m_DriverController = new CommandXboxController(0)
+  private final  CommandXboxController m_CoDriverController = new CommandXboxController(1);
+  private final  CommandXboxController m_DriverController = new CommandXboxController(0);
 
 
 
@@ -49,14 +50,14 @@ public class RobotContainer {
   
 
   
-    m_DriverController.a().whileTrue(m_index.indexRun());
-    m_DriverController.a().whileTrue(m_bshooterH.BshooterwheelRun());
-    m_DriverController.a().whileTrue(m_intake.rollerrun());
-    m_DriverController.a().whileTrue(m_Intakepivot.IntakepivotRun());
-    m_DriverController.a().whileTrue(m_Intakepivot.IntakepivotOut());
-    m_DriverController.a().whileTrue(m_Flywheel.flywheelRun());
-    m_CoDriverController.a().whileTrue(m_endgame.endgameRun());
-    m_CoDriverController.a().whileTrue(m_endgame.endgameOut());
+    m_DriverController.a().whileTrue(m_index.indexRun(indexSpeed));
+    m_DriverController.a().whileTrue(m_bshooterH.BshooterwheelRun(shooterwheelBSpeed));
+    m_DriverController.a().whileTrue(m_intake.rollerrun(rollerSpeed));
+    m_DriverController.a().whileTrue(m_Intakepivot.IntakepivotRun(IntakepivotSpeed));
+    m_DriverController.a().whileTrue(m_Intakepivot.IntakepivotOut(IntakepivotSpeed));
+    m_DriverController.a().whileTrue(m_Flywheel.flywheelRun(flywheelSpeed));
+    m_CoDriverController.a().whileTrue(m_endgame.endgameRun(endgameSpeed));
+    m_CoDriverController.a().whileTrue(m_endgame.endgameOut(endgameSpeed));
 
 
     

@@ -75,13 +75,14 @@ public static final int kDriveWheelFreeSpeedRps = 111111111;
 }
 
 public static final class speeds{
-public static final int indexSpeed = .2;
-public static final int flywheelSpeed = .2;
-public static final int IntakepivotSpeed = .2;
-public static final int shooterwheelBSpeed = .2;
-public static final int endgameSpeed = .2;
+public static final double indexSpeed = 0.2;
+public static final double flywheelSpeed = 0.2;
+public static final double IntakepivotSpeed = 0.2;
+public static final double shooterwheelBSpeed = 0.2;
+public static final double endgameSpeed = 0.2;
+public static final double rollerSpeed = 0.2;
 }
-
+}
 
 
    

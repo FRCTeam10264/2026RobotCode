@@ -21,9 +21,6 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
    
   }
-
-
-
  public static final class DriveConstants {
 
 
@@ -63,7 +60,6 @@ public final class Constants {
        public static final int kRearRightTurningCanId = 2;
     public static final boolean kGyroReversed = false;
 }  
-
  public static final class MechanismConstants{
   public static final int kendgamePort = 11;
   public static final int kflywheelShooterPort = 111;
@@ -78,14 +74,12 @@ public static final int kDrivingMotorReduction = 11111111;
 public static final int kDriveWheelFreeSpeedRps = 111111111;
 }
 
-public static final class speeds 
-public static final int indexSpeed = .2
-public static final int flywheelSpeed = .2
-public static final int rollerSpeed = .2
-public static final int IntakepivotSpeed = .2
-public static final int shooterwheelBSpeed = .2
-public static final int endgameSpeed = .2
-
+public static final class speeds{
+public static final int indexSpeed = .2;
+public static final int flywheelSpeed = .2;
+public static final int IntakepivotSpeed = .2;
+public static final int shooterwheelBSpeed = .2;
+public static final int endgameSpeed = .2;
 }
 
 

@@ -20,12 +20,8 @@ public class endgameT extends Command{
     }
 
     @Override
-// double cheak this is how this shold be done line 25
-     public void execute() {
-         m_endgame.endgameOut(-m_endgame.endgameSpeed);
-    }
 
-    @Override
+    
     public void end(boolean interrupted) {
          m_endgame.endgameStop();
     }

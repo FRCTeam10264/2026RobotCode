@@ -5,9 +5,6 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.Autos;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -23,6 +20,14 @@ import frc.robot.Constants;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private final Index m_index = new Index();
+  private final shooterwheelB m_bshooterH = new shooterwheelB();
+  private final intakerollers m_intake = new intakerollers();
+  private final flywheel m_Flywheel = new flywheel();
+  private final Intakepivot m_Intakepivot = new Intakepivot();
+  private final endgame m_endgame = new endgame();
+
+
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final  CommandXboxController m_CoDriverController = new CommandXboxController(1);
@@ -54,10 +59,10 @@ public class RobotContainer {
     m_DriverController.a().whileTrue(m_bshooterH.BshooterwheelRun(shooterwheelBSpeed));
     m_DriverController.a().whileTrue(m_intake.rollerrun(rollerSpeed));
     m_DriverController.a().whileTrue(m_Intakepivot.IntakepivotRun(IntakepivotSpeed));
-    m_DriverController.a().whileTrue(m_Intakepivot.IntakepivotOut(IntakepivotSpeed));
+    m_DriverController.a().whileTrue(m_Intakepivot.IntakepivotOut(-IntakepivotSpeed));
     m_DriverController.a().whileTrue(m_Flywheel.flywheelRun(flywheelSpeed));
     m_CoDriverController.a().whileTrue(m_endgame.endgameRun(endgameSpeed));
-    m_CoDriverController.a().whileTrue(m_endgame.endgameOut(endgameSpeed));
+    m_CoDriverController.a().whileTrue(m_endgame.endgameOut(-endgameSpeed));
 
 
     
@@ -76,7 +81,7 @@ public class RobotContainer {
   }
 }
 
-
+           
 
 
 

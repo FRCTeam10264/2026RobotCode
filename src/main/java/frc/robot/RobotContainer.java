@@ -6,11 +6,15 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import edu.wpi.first.math.MathUtil;
+import frc.robot.Constants.OIConstant;
 import frc.robot.subsystems.*;
 import frc.robot.commands.*;
 import frc.robot.Constants;
+import frc.robot.commands.DriveCommand;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -26,6 +30,7 @@ public class RobotContainer {
   private final flywheel m_Flywheel = new flywheel();
   private final Intakepivot m_Intakepivot = new Intakepivot();
   private final endgame m_endgame = new endgame();
+  private final DriveSubsystem m_robotDrive = new DriveSubsystem();
 
 
 
@@ -55,16 +60,30 @@ public class RobotContainer {
   
 
   
-    m_DriverController.a().whileTrue(m_index.indexRun(indexSpeed));
-    m_DriverController.a().whileTrue(m_bshooterH.BshooterwheelRun(shooterwheelBSpeed));
-    m_DriverController.a().whileTrue(m_intake.rollerrun(rollerSpeed));
-    m_DriverController.a().whileTrue(m_Intakepivot.IntakepivotRun(IntakepivotSpeed));
-    m_DriverController.a().whileTrue(m_Intakepivot.IntakepivotOut(-IntakepivotSpeed));
-    m_DriverController.a().whileTrue(m_Flywheel.flywheelRun(flywheelSpeed));
-    m_CoDriverController.a().whileTrue(m_endgame.endgameRun(endgameSpeed));
-    m_CoDriverController.a().whileTrue(m_endgame.endgameOut(-endgameSpeed));
+    m_DriverController.a().whileTrue(new ShootH(m_index));
+    m_DriverController.rightTrigger().whileTrue(new shooterH(m_bshooterH));
+    m_DriverController.leftBumper().whileTrue(new IntakeN(m_intake));
+    m_DriverController.leftTrigger().toggleOnTrue(new IntakepivotN(m_Intakepivot));
+    m_DriverController.leftTrigger().toggleOnTrue(new pivotdown(m_Intakepivot));
+    m_DriverController.rightTrigger().whileTrue(new flywheelH(m_Flywheel));
+    m_CoDriverController.y().whileTrue(new endgameT(m_endgame));
+    m_CoDriverController.a().whileTrue(new endgameout(m_endgame));
+
+    m_DriverController.leftStick().whileTrue(m_robotDrive.setXComand());
 
 
+  // Turning is controlled by the X axis of the right stick.
+        new RunCommand(
+            () ->
+                m_robotDrive.drive(
+                    -MathUtil.applyDeadband(
+                        m_DriverController.getLeftY(), OIConstant.kDriveDeadband),
+                    -MathUtil.applyDeadband(
+                        m_DriverController.getLeftX(), OIConstant.kDriveDeadband),
+                    -MathUtil.applyDeadband(
+                        m_DriverController.getRightX(), OIConstant.kDriveDeadband),
+                    true),
+            m_robotDrive).withName("Robot Drive Default");
     
 
     m_CoDriverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());

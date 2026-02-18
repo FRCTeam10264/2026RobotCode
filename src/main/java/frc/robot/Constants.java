@@ -3,7 +3,11 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot;
+
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
+import edu.wpi.first.math.trajectory.TrapezoidProfile;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.util.Units;
 
@@ -17,11 +21,11 @@ import edu.wpi.first.math.util.Units;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-  public static class OperatorConstants {
+public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
    
   }
- public static final class DriveConstants {
+public static final class DriveConstants {
 
 
   public static final int kIMU_ID = 8934893;
@@ -60,7 +64,7 @@ public final class Constants {
        public static final int kRearRightTurningCanId = 2;
     public static final boolean kGyroReversed = false;
 }  
- public static final class MechanismConstants{
+public static final class MechanismConstants{
   public static final int kendgamePort = 11;
   public static final int kflywheelShooterPort = 111;
   public static final int kIndexShooterPort = 1111;
@@ -69,11 +73,18 @@ public final class Constants {
   public static final int kBrollersshooterPort = 1111111;
  }
 public static final class ModuleConstants{
-public static final int kWheelDiameterMeters = 11111111;
-public static final int kDrivingMotorReduction = 11111111;
-public static final int kDriveWheelFreeSpeedRps = 111111111;
-}
-
+    public static final int kDrivingMotorPinionTeeth = 14;
+    public static final double kDrivingMotorFreeSpeedRps = NeoMotorConstants.kFreeSpeedRpm / 60;
+    public static final double kWheelDiameterMeters = Units.inchesToMeters(3);
+    public static final double kWheelCircumferenceMeters = kWheelDiameterMeters * Math.PI;
+    public static final double kDrivingWheelBevelGearTeeth = 45.0;
+    public static final double kDrivingWheelFirstStageSpurGearTeeth = 22.0;
+    public static final double kDrivingMotorBevelPinionTeeth = 15.0;
+    public static final double kDrivingMotorReduction = (kDrivingWheelBevelGearTeeth * kDrivingWheelFirstStageSpurGearTeeth)
+        / (kDrivingMotorPinionTeeth * kDrivingMotorBevelPinionTeeth);
+    public static final double kDriveWheelFreeSpeedRps = (kDrivingMotorFreeSpeedRps * kWheelCircumferenceMeters)
+        / kDrivingMotorReduction;
+  }
 public static final class speeds{
 public static final double indexSpeed = 0.2;
 public static final double flywheelSpeed = 0.2;
@@ -82,9 +93,13 @@ public static final double shooterwheelBSpeed = 0.2;
 public static final double endgameSpeed = 0.2;
 public static final double rollerSpeed = 0.2;
 }
+public final class OIConstant {
+    public static final int kDriverControllerPort = 0;
+    public static final double kDriveDeadband = 0.1;
+    public static final double kTriggerButtonThreshold = 0.2;
+  }
+public static final class NeoMotorConstants {
+    public static final double kFreeSpeedRpm = 5676;
+    public static final double kVortexKv = 565;   // rpm/V
+  }
 }
-
-
-   
-
-

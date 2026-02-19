@@ -16,7 +16,7 @@ public class ShootH extends Command{
 
     @Override
     public void execute() {
-         m_index.indexRun(-m_index.indexSpeed);
+         m_index.indexRun(m_index.indexSpeed);
     }
 
     @Override

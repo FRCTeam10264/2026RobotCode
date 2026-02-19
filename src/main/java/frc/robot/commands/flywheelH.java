@@ -16,7 +16,7 @@ public class flywheelH extends Command{
 
     @Override
     public void execute() {
-         m_Flywheel.flywheelRun(-m_Flywheel.flywheelSpeed);
+         m_Flywheel.flywheelRun(m_Flywheel.flywheelSpeed);
     }
 
     @Override

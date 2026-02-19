@@ -16,7 +16,7 @@ public class endgameT extends Command{
 
     @Override
     public void execute() {
-         m_endgame.endgameRun(-m_endgame.endgameSpeed);
+         m_endgame.endgameRun(m_endgame.endgameSpeed);
     }
 
     @Override

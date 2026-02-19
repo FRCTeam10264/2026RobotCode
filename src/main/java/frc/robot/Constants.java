@@ -65,12 +65,12 @@ public static final class DriveConstants {
     public static final boolean kGyroReversed = false;
 }  
 public static final class MechanismConstants{
-  public static final int kendgamePort = 11;
-  public static final int kflywheelShooterPort = 111;
-  public static final int kIndexShooterPort = 1111;
-  public static final int kintakepivotPort = 11111;
-  public static final int kintakerollersPort = 111111;
-  public static final int kBrollersshooterPort = 1111111;
+  public static final int kendgamePort = 16;
+  public static final int kflywheelShooterPort = 11;
+  public static final int kIndexShooterPort = 12;
+  public static final int kintakepivotPort = 13;
+  public static final int kintakerollersPort = 14;
+  public static final int kBrollersshooterPort = 15;
  }
 public static final class ModuleConstants{
     public static final int kDrivingMotorPinionTeeth = 14;

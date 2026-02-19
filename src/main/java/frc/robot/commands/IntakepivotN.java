@@ -16,7 +16,7 @@ public class IntakepivotN extends Command{
 
     @Override
     public void execute() {
-         m_Intakepivot.IntakepivotRun(-m_Intakepivot.IntakepivotSpeed);
+         m_Intakepivot.IntakepivotRun(m_Intakepivot.IntakepivotSpeed);
     }
 
     @Override

@@ -16,7 +16,7 @@ public class IntakeN extends Command{
 
     @Override
     public void execute() {
-         m_intake.rollerrun(-m_intake.rollerSpeed);
+         m_intake.rollerrun(m_intake.rollerSpeed);
     }
 
     @Override

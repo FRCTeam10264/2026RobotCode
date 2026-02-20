@@ -165,7 +165,7 @@ SwerveDriveOdometry m_odometry = new SwerveDriveOdometry
 
 public Command zeroHeadingCommand()
 {
-    return this.runOnce(() -> m_gyro.reset());
+    return this.runOnce(() -> m_gyro.setYaw(0.0));
 }
 
 public double getHeading()

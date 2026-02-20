@@ -59,12 +59,12 @@ public static final class DriveConstants {
     public static final int kFrontLeftDrivingCanId = 7;
     public static final int kRearLeftDrivingCanId = 8;
     public static final int kFrontRightDrivingCanId = 4;
-    public static final int kRearRightDrivingCanId = 3;
+    public static final int kRearRightDrivingCanId = 2;
 
     public static final int kFrontLeftTurningCanId = 6;
     public static final int kRearLeftTurningCanId = 9;
     public static final int kFrontRightTurningCanId = 5;
-       public static final int kRearRightTurningCanId = 2;
+       public static final int kRearRightTurningCanId = 3;
     public static final boolean kGyroReversed = false;
 }  
 public static final class MechanismConstants{

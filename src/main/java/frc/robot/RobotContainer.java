@@ -84,7 +84,7 @@ public class RobotContainer {
     m_CoDriverController.y().whileTrue(new endgameT(m_endgame));
     m_CoDriverController.a().whileTrue(new endgameout(m_endgame));
 
-    m_DriverController.leftStick().whileTrue(m_robotDrive.setXComand());
+    m_DriverController.leftStick().whileTrue(m_robotDrive.setXCommand());
 
 
   // Turning is controlled by the X axis of the right stick.

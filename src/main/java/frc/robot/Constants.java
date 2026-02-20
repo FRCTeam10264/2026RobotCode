@@ -8,6 +8,7 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.util.Units;
 
@@ -23,12 +24,14 @@ import edu.wpi.first.math.util.Units;
 public final class Constants {
 public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
+    public static final int kCoDriverControllerPort = 1;
+  
    
   }
 public static final class DriveConstants {
 
 
-  public static final int kIMU_ID = 8934893;
+  public static final int kIMU_ID = 10;
     // Driving Parameters - Note that these are not the maximum capable speeds of
     // the robot, rather the allowed maximum speeds//////////////////////////////////////////////////////////////
     public static final double kMaxSpeedMetersPerSecond = 4.8;
@@ -94,7 +97,6 @@ public static final double endgameSpeed = 0.2;
 public static final double rollerSpeed = 0.2;
 }
 public final class OIConstant {
-    public static final int kDriverControllerPort = 0;
     public static final double kDriveDeadband = 0.1;
     public static final double kTriggerButtonThreshold = 0.2;
   }

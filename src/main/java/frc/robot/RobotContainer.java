@@ -14,7 +14,6 @@ import frc.robot.Constants.OIConstant;
 import frc.robot.subsystems.*;
 import frc.robot.commands.*;
 import frc.robot.Constants;
-import frc.robot.commands.DriveCommand;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -45,8 +44,24 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
-  }
 
+    // Configure default commands
+    m_robotDrive.setDefaultCommand(
+        // The left stick controls translation of the robot.
+        // Turning is controlled by the X axis of the right stick.
+        new RunCommand(
+            () ->
+                m_robotDrive.drive(
+                    -MathUtil.applyDeadband(
+                        m_DriverController.getLeftY(), OIConstant.kDriveDeadband),
+                    -MathUtil.applyDeadband(
+                        m_DriverController.getLeftX(), OIConstant.kDriveDeadband),
+                    -MathUtil.applyDeadband(
+                        m_DriverController.getRightX(), OIConstant.kDriveDeadband),
+                    true),
+            m_robotDrive).withName("Robot Drive Default"));
+
+  }
   /**
    * Use this method to define your trigger->command mappings. Triggers can be created via the
    * {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
@@ -73,18 +88,7 @@ public class RobotContainer {
 
 
   // Turning is controlled by the X axis of the right stick.
-        new RunCommand(
-            () ->
-                m_robotDrive.drive(
-                    -MathUtil.applyDeadband(
-                        m_DriverController.getLeftY(), OIConstant.kDriveDeadband),
-                    -MathUtil.applyDeadband(
-                        m_DriverController.getLeftX(), OIConstant.kDriveDeadband),
-                    -MathUtil.applyDeadband(
-                        m_DriverController.getRightX(), OIConstant.kDriveDeadband),
-                    true),
-            m_robotDrive).withName("Robot Drive Default");
-    
+  
 
     m_CoDriverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
   }

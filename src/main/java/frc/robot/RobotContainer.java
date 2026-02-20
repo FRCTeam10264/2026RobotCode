@@ -63,8 +63,8 @@ public class RobotContainer {
     m_DriverController.a().whileTrue(new ShootH(m_index));
     m_DriverController.rightTrigger().whileTrue(new shooterH(m_bshooterH));
     m_DriverController.leftBumper().whileTrue(new IntakeN(m_intake));
-    m_DriverController.leftTrigger().toggleOnTrue(new IntakepivotN(m_Intakepivot));
-    m_DriverController.leftTrigger().toggleOnTrue(new pivotdown(m_Intakepivot));
+    m_DriverController.povUp().whileTrue(new IntakepivotN(m_Intakepivot));
+    m_DriverController.povDown().whileTrue(new pivotdown(m_Intakepivot));
     m_DriverController.rightTrigger().whileTrue(new flywheelH(m_Flywheel));
     m_CoDriverController.y().whileTrue(new endgameT(m_endgame));
     m_CoDriverController.a().whileTrue(new endgameout(m_endgame));

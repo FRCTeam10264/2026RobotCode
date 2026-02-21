@@ -17,7 +17,7 @@ import frc.robot.Constants.MechanismConstants;
 
 
 public class flywheel extends SubsystemBase {
-  public double flywheelSpeed = 1;
+  public double flywheelSpeed = -.55;
   private SparkMax flywheelSparkMax = new SparkMax(MechanismConstants.kflywheelShooterPort, MotorType.kBrushless);
   
    public flywheel() {

@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MechanismConstants;
 
 public class intakerollers extends SubsystemBase {
-  public double rollerSpeed = 1;
+  public double rollerSpeed = .7;
   private SparkMax rollerSparkMax = new SparkMax(MechanismConstants.kintakerollersPort, MotorType.kBrushless);
   
    public intakerollers() {

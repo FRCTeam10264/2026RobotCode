@@ -17,7 +17,7 @@ import frc.robot.Constants.MechanismConstants;
 
 
 public class Index extends SubsystemBase {
-  public double indexSpeed = -.7;
+  public double indexSpeed = .7;
   private SparkMax indexSparkMax = new SparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
   
    public Index() {

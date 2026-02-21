@@ -89,12 +89,7 @@ public static final class ModuleConstants{
         / kDrivingMotorReduction;
   }
 public static final class speeds{
-public static final double indexSpeed = 0.1;
-public static final double flywheelSpeed = 0.1;
-public static final double IntakepivotSpeed = 0.05;
-public static final double shooterwheelBSpeed = 0.1;
-public static final double endgameSpeed = 0.1;
-public static final double rollerSpeed = 0.1;
+
 }
 public final class OIConstant {
     public static final double kDriveDeadband = 0.1;

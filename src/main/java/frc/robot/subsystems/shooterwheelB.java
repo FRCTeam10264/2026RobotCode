@@ -16,7 +16,7 @@ import frc.robot.Constants.MechanismConstants;
 
 
 public class shooterwheelB extends SubsystemBase {
-  public double shooterwheelBSpeed = 1;
+  public double shooterwheelBSpeed = -.8;
   private SparkMax shooterwheelBSparkMax = new SparkMax(MechanismConstants.kBrollersshooterPort, MotorType.kBrushless);
   
    public shooterwheelB() {

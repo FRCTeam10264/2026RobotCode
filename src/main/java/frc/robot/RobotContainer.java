@@ -4,7 +4,6 @@
 
 package frc.robot;
 
-<<<<<<< HEAD
 import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -16,15 +15,11 @@ import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-=======
-import frc.robot.Constant.OperatorConstants;
->>>>>>> 44c6b5f (added yagls swerve drive)
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-<<<<<<< HEAD
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
@@ -34,13 +29,6 @@ import frc.robot.commands.*;
 import frc.robot.subsystems.swervedrive.*;
 
 
-=======
-import edu.wpi.first.math.MathUtil;
-import frc.robot.Constant.OIConstant;
-import frc.robot.subsystems.*;
-import frc.robot.commands.*;
-import frc.robot.Constant;
->>>>>>> 44c6b5f (added yagls swerve drive)
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}

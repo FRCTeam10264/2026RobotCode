@@ -12,7 +12,7 @@ import com.revrobotics.spark.SparkClosedLoopController;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants.MechanismConstants;
+import frc.robot.Constant.MechanismConstants;
 
 
 public class BshooterwheelS extends SubsystemBase {

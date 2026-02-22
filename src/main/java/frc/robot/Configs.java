@@ -3,7 +3,7 @@ package frc.robot;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkFlexConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
-import frc.robot.Constants.ModuleConstants;
+import frc.robot.Constant.ModuleConstants;
 import com.revrobotics.spark.FeedbackSensor;
 
 public final class Configs {

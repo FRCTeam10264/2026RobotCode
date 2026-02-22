@@ -15,23 +15,23 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MechanismConstants;
 
 
-public class shooterwheelB extends SubsystemBase {
-  public double shooterwheelBSpeed = -.8;
+public class BshooterwheelL extends SubsystemBase {
+  public double shooterwheelBLSpeedL = -0.8;
   private SparkMax shooterwheelBSparkMax = new SparkMax(MechanismConstants.kBrollersshooterPort, MotorType.kBrushless);
   
-   public shooterwheelB() {
+   public BshooterwheelL() {
 
   }
 
-  public void BshooterwheelRun(double speed) {
+  public void BshooterwheelLRun(double speed) {
     shooterwheelBSparkMax.set(speed);
   }
 
-  public void BshooterwheelOut(double speed) {
+  public void BshooterwheelLOut(double speed) {
     shooterwheelBSparkMax.set(-speed);
   }
 
-  public void BshooterwheelStop() {
+  public void BshooterwheelLStop() {
     shooterwheelBSparkMax.stopMotor();
   }
 }

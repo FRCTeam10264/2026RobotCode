@@ -25,7 +25,7 @@ import swervelib.math.Matter;
  * constants are needed, to reduce verbosity.
  */
 public final class Constant {
-public static class OperatorConstants {
+public static class OperatorConstant {
     public static final int kDriverControllerPort = 0;
     public static final int kCoDriverControllerPort = 1;
   

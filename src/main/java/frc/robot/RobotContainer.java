@@ -24,7 +24,10 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final Index m_index = new Index();
-  private final shooterwheelB m_bshooterH = new shooterwheelB();
+  private final BshooterwheelS m_bshooterHS = new BshooterwheelS();
+  private final BshooterwheelL m_bshooterHL = new BshooterwheelL();
+
+
   private final intakerollers m_intake = new intakerollers();
   private final flywheel m_Flywheel = new flywheel();
   private final Intakepivot m_Intakepivot = new Intakepivot();
@@ -75,16 +78,24 @@ public class RobotContainer {
   
 
   
-    m_DriverController.a().whileTrue(new ShootH(m_index));
-    m_DriverController.rightTrigger().whileTrue(new shooterH(m_bshooterH));
-    m_DriverController.leftBumper().whileTrue(new IntakeN(m_intake));
-    m_DriverController.povUp().whileTrue(new IntakepivotN(m_Intakepivot));
-    m_DriverController.povDown().whileTrue(new pivotdown(m_Intakepivot));
-    m_DriverController.rightTrigger().whileTrue(new flywheelH(m_Flywheel));
+    m_DriverController.rightBumper().whileTrue(new ShootH(m_index));
+     m_DriverController.leftBumper().whileTrue(new ShootH(m_index));
+    m_DriverController.rightTrigger().toggleOnTrue(new shootershort(m_bshooterHS));
+    m_DriverController.leftTrigger().toggleOnTrue(new shooterlong(m_bshooterHL));
+    m_DriverController.rightTrigger().toggleOnTrue(new flywheelH(m_Flywheel));
+     m_DriverController.leftTrigger().toggleOnTrue(new flywheelH(m_Flywheel));
+
+
+
+    m_DriverController.leftStick().whileTrue(m_robotDrive.setXCommand());
+
+    m_CoDriverController.leftBumper().toggleOnTrue(new IntakeN(m_intake));
+    m_CoDriverController.rightBumper().whileTrue(new IntakepivotN(m_Intakepivot));
+    m_CoDriverController.rightTrigger().whileTrue(new pivotdown(m_Intakepivot));
     m_CoDriverController.y().whileTrue(new endgameT(m_endgame));
     m_CoDriverController.a().whileTrue(new endgameout(m_endgame));
 
-    m_DriverController.leftStick().whileTrue(m_robotDrive.setXCommand());
+
 
 
   // Turning is controlled by the X axis of the right stick.

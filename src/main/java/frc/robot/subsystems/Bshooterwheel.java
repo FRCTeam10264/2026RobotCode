@@ -12,14 +12,12 @@ import com.revrobotics.spark.SparkClosedLoopController;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constant.MechanismConstants;
+import frc.robot.Constants.MechanismConstants;
 
 
 public class Bshooterwheel extends SubsystemBase {
-  
-    public double shooterwheelBLSpeed = -0.8;
-    public double shooterwheelBSSpeed = -0.8;
-    
+  public double shooterwheelBSpeedSHORT = -0.8;
+  public double shooterwheelBLSpeedLONG = -0.8;
   private SparkMax shooterwheelBSparkMax = new SparkMax(MechanismConstants.kBrollersshooterPort, MotorType.kBrushless);
   
    public Bshooterwheel() {

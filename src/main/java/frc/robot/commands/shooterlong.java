@@ -1,12 +1,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.BshooterwheelL;
+import frc.robot.subsystems.Bshooterwheel;
+import frc.robot.Constant;
 
 public class shooterlong extends Command{
-    private final BshooterwheelL m_bshooterHL;   
+    private final Bshooterwheel m_bshooterHL;   
 
-    public shooterlong(BshooterwheelL ind) {
+    public shooterlong(Bshooterwheel ind) {
         m_bshooterHL = ind;
         addRequirements(m_bshooterHL);
     }
@@ -16,12 +17,12 @@ public class shooterlong extends Command{
 
     @Override
     public void execute() {
-         m_bshooterHL.BshooterwheelLRun(m_bshooterHL.shooterwheelBLSpeedL);
+         m_bshooterHL.BshooterwheelRun(m_bshooterHL.shooterwheelBLSpeed);
     }
 
     @Override
     public void end(boolean interrupted) {
-         m_bshooterHL.BshooterwheelLStop();
+         m_bshooterHL.BshooterwheelStop();
     }
 
     @Override

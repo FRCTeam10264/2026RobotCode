@@ -46,8 +46,8 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final Index m_index = new Index();
-  private final BshooterwheelS m_bshooterHS = new BshooterwheelS();
-  private final BshooterwheelL m_bshooterHL = new BshooterwheelL();
+ 
+  private final Bshooterwheel m_bshooterH = new Bshooterwheel();
 
 
   private final intakerollers m_intake = new intakerollers();
@@ -82,8 +82,8 @@ public class RobotContainer {
   
     driverXbox.rightBumper().whileTrue(new ShootH(m_index));
      driverXbox.leftBumper().whileTrue(new ShootH(m_index));
-    driverXbox.rightTrigger().toggleOnTrue(new shootershort(m_bshooterHS));
-    driverXbox.leftTrigger().toggleOnTrue(new shooterlong(m_bshooterHL));
+    driverXbox.rightTrigger().toggleOnTrue(new shootershort(m_bshooterH));
+    driverXbox.leftTrigger().toggleOnTrue(new shooterlong(m_bshooterH));
     driverXbox.rightTrigger().toggleOnTrue(new flywheelH(m_Flywheel));
      driverXbox.leftTrigger().toggleOnTrue(new flywheelH(m_Flywheel));
 

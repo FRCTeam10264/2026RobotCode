@@ -100,5 +100,11 @@ public static final class NeoMotorConstants {
     public static final double kFreeSpeedRpm = 5676;
     public static final double kVortexKv = 565;   // rpm/V
   }
+public static final class speeds{
+    public double shooterwheelBLSpeed = -0.8;
+    public double shooterwheelBSSpeed = -0.8;
+
+  
+}
 }
 //all below this is currently expermental

@@ -58,6 +58,7 @@ public final class Constants {
     public static final int kRearRightTurningCanId = 2;
 
     public static final boolean kGyroReversed = false;
+    public static int kIMU_ID = 10;
   }
 
   public static final class NeoMotorConstants {

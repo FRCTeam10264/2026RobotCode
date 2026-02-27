@@ -7,11 +7,9 @@ package frc.robot;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.commands.Autos;
 import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.*;
 import frc.robot.commands.*;
@@ -29,6 +27,7 @@ public class RobotContainer {
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
    private final Index m_index = new Index();
   private final Bshooterwheel m_bshooterHS = new Bshooterwheel();
+  private final Bshooterwheel m_bshooterHL = new Bshooterwheel();
  
 
 
@@ -91,7 +90,7 @@ public class RobotContainer {
    m_driverController.rightBumper().whileTrue(new ShootH(m_index));
      m_driverController.leftBumper().whileTrue(new ShootH(m_index));
     m_driverController.rightTrigger().toggleOnTrue(new shootershort(m_bshooterHS));
-    //m_DriverController.leftTrigger().toggleOnTrue(new shooterlong(m_bshooterHL));
+    m_driverController.leftTrigger().toggleOnTrue(new shooterlong(m_bshooterHL));
     m_driverController.rightTrigger().toggleOnTrue(new flywheelH(m_Flywheel));
      m_driverController.leftTrigger().toggleOnTrue(new flywheelH(m_Flywheel));
 

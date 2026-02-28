@@ -4,7 +4,9 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MechanismConstants;
@@ -13,8 +15,11 @@ import frc.robot.Constants.MechanismConstants;
 public class Intakepivot extends SubsystemBase {
   public double IntakepivotSpeed = 0.25;
   private SparkMax IntakepivotSparkMax = new SparkMax(MechanismConstants.kintakepivotPort, MotorType.kBrushless);
-  
-   public Intakepivot() {
+  private SparkClosedLoopController intakepivioController;
+
+
+  public Intakepivot() {intakepivioController = IntakepivotSparkMax.getClosedLoopController();
+
 
   }
 
@@ -28,5 +33,18 @@ public class Intakepivot extends SubsystemBase {
 
   public void IntakepivotStop() {
     IntakepivotSparkMax.stopMotor();
+  }
+
+public void intakepos1(double intakepivotSpeed2){
+  intakepivioController.setSetpoint(5, ControlType.kPosition);
+
+  }
+  public void intakepos2(double intakepivotSpeed2){
+  intakepivioController.setSetpoint(10, ControlType.kPosition);
+
+  }
+  public void intakepos3(double intakepivotSpeed2){
+  intakepivioController.setSetpoint(10, ControlType.kPosition);
+
   }
 }

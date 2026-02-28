@@ -27,7 +27,7 @@ public class RobotContainer {
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
    private final Index m_index = new Index();
   private final Bshooterwheel m_bshooterHS = new Bshooterwheel();
-  private final Bshooterwheel m_bshooterHL = new Bshooterwheel();
+ 
  
 
 
@@ -90,9 +90,9 @@ public class RobotContainer {
    m_driverController.rightBumper().whileTrue(new ShootH(m_index));
      m_driverController.leftBumper().whileTrue(new ShootH(m_index));
     m_driverController.rightTrigger().toggleOnTrue(new shootershort(m_bshooterHS));
-    m_driverController.leftTrigger().toggleOnTrue(new shooterlong(m_bshooterHL));
-    m_driverController.rightTrigger().toggleOnTrue(new flywheelH(m_Flywheel));
-     m_driverController.leftTrigger().toggleOnTrue(new flywheelH(m_Flywheel));
+    m_driverController.leftTrigger().toggleOnTrue(new shooterlong(m_bshooterHS));
+    m_driverController.rightTrigger().toggleOnTrue(new flywheelsidewall(m_Flywheel));
+     m_driverController.leftTrigger().toggleOnTrue(new flywheeltower(m_Flywheel));
 
 
 
@@ -104,6 +104,9 @@ public class RobotContainer {
     m_CoDriverController.rightTrigger().whileTrue(new pivotdown(m_Intakepivot));
     m_CoDriverController.y().whileTrue(new endgameT(m_endgame));
     m_CoDriverController.a().whileTrue(new endgameout(m_endgame));
+       m_CoDriverController.povUp().whileTrue(new pivotpos1(m_Intakepivot));
+       m_CoDriverController.povDown().whileTrue(new pivotpos2(m_Intakepivot));
+       m_CoDriverController.povRight().whileTrue(new pivotpos3(m_Intakepivot));
     // Right Trigger -> Run fuel intake in reverse
    
 

@@ -3,10 +3,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.flywheel;
 
-public class flywheelH extends Command{
+public class flywheeltower extends Command{
     private final flywheel m_Flywheel;
     
-    public flywheelH(flywheel ind) {
+    public flywheeltower(flywheel ind) {
         m_Flywheel = ind;
         addRequirements(m_Flywheel);
     }
@@ -16,7 +16,7 @@ public class flywheelH extends Command{
 
     @Override
     public void execute() {
-         m_Flywheel.flywheelRun(m_Flywheel.flywheelSpeed);
+         m_Flywheel.flywheelRun(m_Flywheel.flywheeltowerSpeed);
     }
 
     @Override

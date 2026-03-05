@@ -3,10 +3,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.flywheel;
 
-public class shooterclear extends Command{
+public class flywheelclear extends Command{
     private final flywheel m_Flywheel;
     
-    public shooterclear(flywheel ind) {
+    public flywheelclear(flywheel ind) {
         m_Flywheel = ind;
         addRequirements(m_Flywheel);
     }

@@ -35,7 +35,7 @@ public class Intakepivot extends SubsystemBase {
     IntakepivotSparkMax.stopMotor();
   }
 
-public void intakepos1(double Speed){
+public void intakepos1(double speed){
   intakepivioController.setSetpoint(0, ControlType.kPosition);
 
   }

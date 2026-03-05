@@ -3,12 +3,12 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Bshooterwheel;
 
-public class shootershort extends Command{
-    private final Bshooterwheel m_bshooterHS;   
+public class shootersidewall extends Command{
+    private final Bshooterwheel m_bshooter;   
 
-    public shootershort(Bshooterwheel ind) {
-        m_bshooterHS = ind;
-        addRequirements(m_bshooterHS);
+    public shootersidewall(Bshooterwheel ind) {
+        m_bshooter = ind;
+        addRequirements(m_bshooter);
     }
 
      @Override
@@ -16,12 +16,12 @@ public class shootershort extends Command{
 
     @Override
     public void execute() {
-         m_bshooterHS.BshooterwheelRun(m_bshooterHS.shooterwheelBSpeedSHORT);
+         m_bshooter.BshooterwheelRun(m_bshooter.shooterwheelBSpeedSHORT);
     }
 
     @Override
     public void end(boolean interrupted) {
-         m_bshooterHS.BshooterwheelStop();
+         m_bshooter.BshooterwheelStop();
     }
 
     @Override

@@ -113,11 +113,13 @@ public final class Constants {
 
   public static final class MechanismConstants{
   public static final int kendgamePort = 16;
-  public static final int kflywheelShooterPort = 11;
+  public static final int kflywheel1ShooterPort = 11;
+   public static final int kflywheel2ShooterPort = 15;
   public static final int kIndexShooterPort = 12;
   public static final int kintakepivotPort = 13;
   public static final int kintakerollersPort = 14;
-  public static final int kBrollersshooterPort = 15;
+  //public static final int kBrollersshooterPort = 15;
+
  }
  public static final class RobotConfig {
 

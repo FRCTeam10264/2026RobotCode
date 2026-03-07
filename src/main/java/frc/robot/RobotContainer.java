@@ -5,10 +5,13 @@
 package frc.robot;
 
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -19,6 +22,7 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.PathPlannerAuto;
 import com.pathplanner.lib.events.EventTrigger;
+import com.pathplanner.lib.events.PointTowardsZoneTrigger;
 import com.pathplanner.lib.path.GoalEndState;
 import com.pathplanner.lib.path.PathConstraints;
 import com.pathplanner.lib.path.PathPlannerPath;
@@ -30,19 +34,17 @@ import com.pathplanner.lib.path.Waypoint;
 
 
 public class RobotContainer {
-
-  
-
-   
-
- 
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
+  private final SendableChooser<Command> autoChooser;
+
+
   private final Index m_index = new Index();
-  private final Bshooterwheel m_bshooterHS = new Bshooterwheel();
+  //private final Bshooterwheel m_bshooterHS = new Bshooterwheel();
   private final intakerollers m_intake = new intakerollers();
-  private final flywheel m_Flywheel = new flywheel();
+  private final flywheel1 m_Flywheel1 = new flywheel1();
   private final Intakepivot m_Intakepivot = new Intakepivot();
   private final endgame m_endgame = new endgame();
+  private final flywheel2 m_Flywheel2 = new flywheel2();
 
   // The driver's controller
   private final CommandXboxController m_driverController =
@@ -51,14 +53,61 @@ public class RobotContainer {
       private final CommandXboxController m_CoDriverController =
       new CommandXboxController(OIConstants.kCoDriverControllerPort);
 
+ public Command getAutonomousCommand() {
+   
+  try{
+        // Load the path you want to follow using its name in the GUI
+        PathPlannerPath path = PathPlannerPath.fromPathFile("Example Path");
+
+        // Create a path following command using AutoBuilder. This will also trigger event markers.
+        return AutoBuilder.followPath(path);
+    } catch (Exception e) {
+        DriverStation.reportError("Big oops: " + e.getMessage(), e.getStackTrace());
+        return Commands.none();
+    }
+  }
+  
+ 
+
+ 
 
   public RobotContainer() {
-    
-   
-    configureBindings();
 
-  
-    m_robotDrive.setDefaultCommand(
+
+     ///DriveSubsystem m_robotDrive = new DriveSubsystem();
+        //exampleSubsystem = new ExampleSubsystem(); inilisation command if ones above dont work
+
+        // Register Named Commands
+      
+        ///NamedCommands.registerCommand("shoot sidewall", new shootersidewall(m_bshooterHS));
+        //NamedCommands.registerCommand("shoot tower", new shootertower(m_bshooterHS));
+        NamedCommands.registerCommand("climb tower", new endgameT(m_endgame));
+        NamedCommands.registerCommand("pivot pos1", new pivotpos1(m_Intakepivot));
+        NamedCommands.registerCommand("pivot pos2", new pivotpos2(m_Intakepivot));
+        NamedCommands.registerCommand("pivot pos3", new pivotpos3(m_Intakepivot));
+        NamedCommands.registerCommand("pivot down", new pivotdown(m_Intakepivot));
+        NamedCommands.registerCommand("pivot up", new pivotup(m_Intakepivot));
+        NamedCommands.registerCommand("intake rollers", new IntakeN(m_intake));
+        NamedCommands.registerCommand("index", new indexe(m_index));
+
+
+        // new EventTrigger("shoot note").and(new Trigger(exampleSubsystem::someCondition)).onTrue(Commands.print("shoot note");
+
+
+       // new PointTowardsZoneTrigger("Speaker").whileTrue(Commands.print("aiming at speaker"));
+
+
+
+
+        
+
+ 
+ SmartDashboard.putNumber("Bat Voltage", RobotController.getBatteryVoltage());
+ configureBindings();
+
+
+
+  m_robotDrive.setDefaultCommand(
       
         new RunCommand(
             () ->
@@ -71,45 +120,77 @@ public class RobotContainer {
                         m_driverController.getRightX(), OIConstants.kDriveDeadband),
                     true),
             m_robotDrive).withName("Robot Drive Default"));
+    // For convenience a programmer could change this when going to competition.
+    boolean isCompetition = true;
 
-    
+    // Build an auto chooser. This will use Commands.none() as the default option.
+    // As an example, this will only show autos that start with "comp" while at
+    // competition as defined by the programmer
+    autoChooser = AutoBuilder.buildAutoChooserWithOptionsModifier(
+      (stream) -> isCompetition
+        ? stream.filter(auto -> auto.getName().startsWith("comp"))
+        : stream
+    );
 
-    SmartDashboard.putNumber("Bat Voltage", RobotController.getBatteryVoltage());
-
-   
-
+    SmartDashboard.putData("Auto Chooser", autoChooser);
+  
     
   }
 
- 
-  private void configureBindings() {
+
+
+  
+
+
+
+
+
+
+
+    
+
+    // ...
+
+    // Build an auto chooser. This will use Commands.none() as the default option.
+    
+
+    // Another option that allows you to specify the default auto by its name
+    // autoChooser = AutoBuilder.buildAutoChooser("My Default Auto");
+
    
+  
+
+  
+  private void configureBindings() {
+    
+
     m_driverController.leftStick().whileTrue(m_robotDrive.setXCommand());
     m_driverController.start().onTrue(m_robotDrive.zeroHeadingCommand());
 
     m_driverController.rightBumper().whileTrue(new indexe(m_index));
     m_driverController.leftBumper().whileTrue(new indexe(m_index));
 
-    m_driverController.rightTrigger().toggleOnTrue(new shootersidewall(m_bshooterHS));
-    m_driverController.rightTrigger().toggleOnTrue(new flywheelsidewall(m_Flywheel));
+   /// m_driverController.rightTrigger().toggleOnTrue(new shootersidewall(m_bshooterHS));
+    m_driverController.rightTrigger().toggleOnTrue(new flywheel1other(m_Flywheel1));
+    m_driverController.rightTrigger().toggleOnTrue(new flywheel2other(m_Flywheel2));
   
-    m_driverController.leftTrigger().toggleOnTrue(new shootertower(m_bshooterHS));
-    m_driverController.leftTrigger().toggleOnTrue(new flywheeltower(m_Flywheel));
+    ///m_driverController.leftTrigger().toggleOnTrue(new shootertower(m_bshooterHS));
+    m_driverController.leftTrigger().toggleOnTrue(new flywheel1ramp(m_Flywheel1));
+    m_driverController.leftTrigger().toggleOnTrue(new flywheel2ramp(m_Flywheel2));
    
     m_driverController.x().whileTrue(new indexerclear(m_index));
-    m_driverController.x().whileTrue(new flywheelclear(m_Flywheel));
+   // m_driverController.x().whileTrue(new flywheel1clear(m_Flywheel1));
 
 
     m_driverController.leftStick().whileTrue(m_robotDrive.setXCommand());
     m_driverController.start().onTrue(m_robotDrive.zeroHeadingCommand());
 
     m_CoDriverController.x().whileTrue(new indexerclear(m_index));
-    m_CoDriverController.x().whileTrue(new flywheelclear(m_Flywheel));
+    //m_CoDriverController.x().whileTrue(new flywheel1clear(m_Flywheel1));
 
     m_CoDriverController.leftBumper().toggleOnTrue(new IntakeN(m_intake));
 
-    m_CoDriverController.rightBumper().whileTrue(new IntakepivotN(m_Intakepivot));
-
+    m_CoDriverController.rightBumper().whileTrue(new pivotup(m_Intakepivot));
     m_CoDriverController.rightTrigger().whileTrue(new pivotdown(m_Intakepivot));
 
     m_CoDriverController.y().whileTrue(new endgameT(m_endgame));
@@ -120,11 +201,14 @@ public class RobotContainer {
     m_CoDriverController.povDown().whileTrue(new pivotpos2(m_Intakepivot));
     m_CoDriverController.povRight().whileTrue(new pivotpos3(m_Intakepivot));
 
-
+  
 
 
     m_CoDriverController.start().onTrue(new idleindexer(m_index));
-    m_CoDriverController.start().onTrue(new idleflywheel(m_Flywheel));
+    m_CoDriverController.start().onTrue(new idleflywheel1(m_Flywheel1));
+
+  
+
   
   }
 }

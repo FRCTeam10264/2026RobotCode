@@ -3,10 +3,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Intakepivot;
 
-public class IntakepivotN extends Command{
+public class pivotup extends Command{
     private final Intakepivot m_Intakepivot;
     
-    public IntakepivotN(Intakepivot ind) {
+    public pivotup(Intakepivot ind) {
         m_Intakepivot = ind;
         addRequirements(m_Intakepivot);
     }

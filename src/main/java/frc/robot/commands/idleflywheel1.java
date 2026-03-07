@@ -1,12 +1,12 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.flywheel;
+import frc.robot.subsystems.flywheel1;
 
-public class flywheelsidewall extends Command{
-    private final flywheel m_Flywheel;
+public class idleflywheel1 extends Command{
+    private final flywheel1 m_Flywheel;
     
-    public flywheelsidewall(flywheel ind) {
+    public idleflywheel1(flywheel1 ind) {
         m_Flywheel = ind;
         addRequirements(m_Flywheel);
     }
@@ -16,12 +16,12 @@ public class flywheelsidewall extends Command{
 
     @Override
     public void execute() {
-         m_Flywheel.flywheelRun(m_Flywheel.flywheelsidewallSpeed);
+         m_Flywheel.flywheel1Run(m_Flywheel.idleflywheel1Speed);
     }
 
     @Override
     public void end(boolean interrupted) {
-         m_Flywheel.flywheelStop();
+         m_Flywheel.flywheel1Stop();
     }
 
     @Override

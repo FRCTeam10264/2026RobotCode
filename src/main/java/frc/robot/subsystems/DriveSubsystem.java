@@ -26,14 +26,6 @@ import com.pathplanner.lib.util.PathPlannerLogging;
 
 
 public class DriveSubsystem extends SubsystemBase {
-
-
-
-
-
-
-
-
   
   // Create MAXSwerveModules
   private final MAXSwerveModule m_frontLeft = new MAXSwerveModule(
@@ -72,7 +64,7 @@ private final MAXSwerveModule m_rearRight = new MAXSwerveModule(
           });
 
   /** Creates a new DriveSubsystem. */
-  public DriveSubsystem() {}
+  
 
   @Override
   public void periodic() {
@@ -176,7 +168,8 @@ private final MAXSwerveModule m_rearRight = new MAXSwerveModule(
     m_frontRight.resetEncoders();
     m_rearRight.resetEncoders();
   }
-
+public ChassisSpeeds getRobotRelativeSpeeds() {return DriveConstants.kDriveKinematics.toChassisSpeeds(m_frontLeft.getState(),m_frontRight.getState(),m_rearLeft.getState(),m_rearRight.getState());}
+public void driveRobotRelative(ChassisSpeeds speeds) {this.drive(speeds.vxMetersPerSecond,speeds.vyMetersPerSecond,speeds.omegaRadiansPerSecond,false);}
   /** Zeroes the heading of the robot. */
   public Command zeroHeadingCommand() {
     return this.runOnce(() -> m_gyro.reset());
@@ -198,7 +191,36 @@ private final MAXSwerveModule m_rearRight = new MAXSwerveModule(
    */
   public double getTurnRate() {
    return m_gyro.getYaw().getValueAsDouble() * (DriveConstants.kGyroReversed ? -1.0 : 1.0);
+  }
+public DriveSubsystem() {
   
+        RobotConfig config;
+        try {
+            config = RobotConfig.fromGUISettings();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return; // Stop if config fails
+        }
 
-   
-  }}
+        // Configure AutoBuilder INSIDE the constructor
+        AutoBuilder.configure(
+            this::getPose,
+            this::resetOdometry,
+            this::getRobotRelativeSpeeds,
+            (speeds, feedforwards) -> driveRobotRelative(speeds),
+            new PPHolonomicDriveController(
+                new PIDConstants(5.0, 0.0, 0.0),
+                new PIDConstants(5.0, 0.0, 0.0)
+            ),
+            config,
+            () -> {
+                var alliance = DriverStation.getAlliance();
+                if (alliance.isPresent()) {
+                    return alliance.get() == DriverStation.Alliance.Red;
+                }
+                return false;
+            },
+            this
+        ); // End of AutoBuilder.configure
+    } // End of DriveSubsystem constructor
+}

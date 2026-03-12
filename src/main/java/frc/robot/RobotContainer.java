@@ -55,16 +55,8 @@ public class RobotContainer {
 
  public Command getAutonomousCommand() {
    
-  try{
-        // Load the path you want to follow using its name in the GUI
-        PathPlannerPath path = PathPlannerPath.fromPathFile("Example Path");
-
-        // Create a path following command using AutoBuilder. This will also trigger event markers.
-        return AutoBuilder.followPath(path);
-    } catch (Exception e) {
-        DriverStation.reportError("Big oops: " + e.getMessage(), e.getStackTrace());
-        return Commands.none();
-    }
+  Command command  = autoChooser.getSelected();
+  return command;
   }
   
  
@@ -81,13 +73,13 @@ public class RobotContainer {
       
         ///NamedCommands.registerCommand("shoot sidewall", new shootersidewall(m_bshooterHS));
         //NamedCommands.registerCommand("shoot tower", new shootertower(m_bshooterHS));
-        NamedCommands.registerCommand("climb tower", new endgameT(m_endgame));
-        NamedCommands.registerCommand("pivot pos1", new pivotpos1(m_Intakepivot));
-        NamedCommands.registerCommand("pivot pos2", new pivotpos2(m_Intakepivot));
-        NamedCommands.registerCommand("pivot pos3", new pivotpos3(m_Intakepivot));
-        NamedCommands.registerCommand("pivot down", new pivotdown(m_Intakepivot));
-        NamedCommands.registerCommand("pivot up", new pivotup(m_Intakepivot));
-        NamedCommands.registerCommand("intake rollers", new IntakeN(m_intake));
+        NamedCommands.registerCommand("climbtower", new endgameT(m_endgame));
+        NamedCommands.registerCommand("pivotpos1", new pivotpos1(m_Intakepivot));
+        NamedCommands.registerCommand("pivotpos2", new pivotpos2(m_Intakepivot));
+        NamedCommands.registerCommand("pivotpos3", new pivotpos3(m_Intakepivot));
+        NamedCommands.registerCommand("pivotdown", new pivotdown(m_Intakepivot));
+        NamedCommands.registerCommand("pivotup", new pivotup(m_Intakepivot));
+        NamedCommands.registerCommand("intakerollers", new IntakeN(m_intake));
         NamedCommands.registerCommand("index", new indexe(m_index));
 
 

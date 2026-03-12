@@ -39,11 +39,11 @@ public void intakepos1(double speed){
   intakepivioController.setSetpoint(0, ControlType.kPosition);
 
   }
-  public void intakepos2(double Speed){
+  public void intakepos2(double speed){
   intakepivioController.setSetpoint(-60, ControlType.kPosition);
 
   }
-  public void intakepos3(double Speed){
+  public void intakepos3(double speed){
   intakepivioController.setSetpoint(-90, ControlType.kPosition);
 
   }

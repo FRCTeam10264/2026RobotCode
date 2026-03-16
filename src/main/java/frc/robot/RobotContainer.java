@@ -34,6 +34,7 @@ import com.pathplanner.lib.path.Waypoint;
 
 
 public class RobotContainer {
+  
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
   private final SendableChooser<Command> autoChooser;
 
@@ -81,6 +82,8 @@ public class RobotContainer {
         NamedCommands.registerCommand("pivotup", new pivotup(m_Intakepivot));
         NamedCommands.registerCommand("intakerollers", new IntakeN(m_intake));
         NamedCommands.registerCommand("index", new indexe(m_index));
+        NamedCommands.registerCommand("mainfly", new flywheel1other(m_Flywheel1));
+         NamedCommands.registerCommand("mainfly", new flywheel2other(m_Flywheel2));
 
 
         // new EventTrigger("shoot note").and(new Trigger(exampleSubsystem::someCondition)).onTrue(Commands.print("shoot note");

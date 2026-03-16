@@ -13,8 +13,10 @@ import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.Constants;
 import frc.robot.Constants.DriveConstants;
 import com.pathplanner.lib.auto.AutoBuilder;
@@ -22,11 +24,15 @@ import com.pathplanner.lib.config.PIDConstants;
 import com.pathplanner.lib.config.RobotConfig;
 import com.pathplanner.lib.controllers.PPHolonomicDriveController;
 import com.pathplanner.lib.util.PathPlannerLogging;
-
-
+import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
+import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Mechanism;
+import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Config;;
 
 public class DriveSubsystem extends SubsystemBase {
   
+   
+
+
   // Create MAXSwerveModules
   private final MAXSwerveModule m_frontLeft = new MAXSwerveModule(
     DriveConstants.kFrontLeftDrivingCanId,
@@ -68,6 +74,8 @@ private final MAXSwerveModule m_rearRight = new MAXSwerveModule(
 
   @Override
   public void periodic() {
+SmartDashboard.putNumber("encoder",m_frontLeft.getPosition().distanceMeters);
+
     // Update the odometry in the periodic block
     m_odometry.update(
         Rotation2d.fromDegrees(m_gyro.getYaw().getValueAsDouble()),
@@ -193,7 +201,7 @@ public void driveRobotRelative(ChassisSpeeds speeds) {this.drive(speeds.vxMeters
    return m_gyro.getYaw().getValueAsDouble() * (DriveConstants.kGyroReversed ? -1.0 : 1.0);
   }
 public DriveSubsystem() {
-  
+
         RobotConfig config;
         try {
             config = RobotConfig.fromGUISettings();
@@ -209,8 +217,8 @@ public DriveSubsystem() {
             this::getRobotRelativeSpeeds,
             (speeds, feedforwards) -> driveRobotRelative(speeds),
             new PPHolonomicDriveController(
-                new PIDConstants(5.0, 0.0, 0.0),
-                new PIDConstants(5.0, 0.0, 0.0)
+                new PIDConstants(0.80, 0.0, 0.0),
+                new PIDConstants(0.3, 0.0, 0.0)
             ),
             config,
             () -> {
@@ -221,6 +229,6 @@ public DriveSubsystem() {
                 return false;
             },
             this
-        ); // End of AutoBuilder.configure
-    } // End of DriveSubsystem constructor
-}
+        ); 
+    }
+  }

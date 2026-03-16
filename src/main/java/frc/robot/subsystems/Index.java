@@ -6,8 +6,13 @@ package frc.robot.subsystems;
 
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.ClosedLoopConfig;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Configs;
 import frc.robot.Constants.MechanismConstants;
+import com.revrobotics.PersistMode;
+import com.revrobotics.ResetMode;
 
 
 public class Index extends SubsystemBase {
@@ -16,6 +21,8 @@ public class Index extends SubsystemBase {
   private SparkMax indexSparkMax = new SparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
   
    public Index() {
+   /// indexSparkMax.configure(Configs.indexSubsystem.indexConfig, ResetMode.kResetSafeParameters,
+     ///   PersistMode.kPersistParameters);
 
   }
 

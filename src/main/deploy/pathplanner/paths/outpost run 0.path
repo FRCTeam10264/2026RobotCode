@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.0,
-        "y": 6.0
+        "x": 3.5571495327102802,
+        "y": 2.156690031152648
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.25,
-        "y": 6.0
+        "x": 1.0397565922920888,
+        "y": 0.7050405679513185
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.53262677484787,
-        "y": 6.0
+        "x": 1.002961460446247,
+        "y": 0.6958417849898593
       },
       "prevControl": {
-        "x": 3.28262677484787,
-        "y": 6.0
+        "x": 3.495831643002027,
+        "y": 2.1584482758620696
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "outpost run 0"
     }
   ],
   "rotationTargets": [],
@@ -33,20 +33,15 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
-      "name": "mainfly",
-      "waypointRelativePos": 0,
-      "endWaypointRelativePos": 1.0,
-      "command": {
-        "type": "named",
-        "data": {
-          "name": "mainfly"
-        }
-      }
+      "name": "outpost",
+      "waypointRelativePos": 1.0,
+      "endWaypointRelativePos": null,
+      "command": null
     }
   ],
   "globalConstraints": {
-    "maxVelocity": 0.1,
-    "maxAcceleration": 0.1,
+    "maxVelocity": 0.8,
+    "maxAcceleration": 0.8,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -54,7 +49,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 2.038514276752066
+    "rotation": 2.3859440303887083
   },
   "reversed": false,
   "folder": null,

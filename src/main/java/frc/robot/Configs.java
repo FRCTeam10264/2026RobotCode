@@ -36,7 +36,7 @@ public final class Configs {
 
       drivingConfig
         .idleMode(IdleMode.kBrake)
-        .smartCurrentLimit(60);
+        .smartCurrentLimit(40);
 
       drivingConfig
         .encoder
@@ -54,7 +54,7 @@ public final class Configs {
 
       turningConfig
         .idleMode(IdleMode.kBrake)
-        .smartCurrentLimit(60);
+        .smartCurrentLimit(40);
 
       turningConfig
         .absoluteEncoder
@@ -70,7 +70,7 @@ public final class Configs {
         .closedLoop
           .feedbackSensor(FeedbackSensor.kAbsoluteEncoder)
           // These are example gains you may need to adjust them for your own robot!
-          .pid(1, 0, 0)
+          .pid(1.0, 0, 0)
           .outputRange(-1, 1)
           // Enable PID wrap around for the turning motor. This will allow the PID
           // controller to go through 0 to get to the setpoint i.e. going from 350 degrees
@@ -102,54 +102,37 @@ public final class Configs {
     }
   }
 
-  public static final class ShooterSubsystem {
-    public static final SparkFlexConfig flywheelConfig = new SparkFlexConfig();
-    public static final SparkFlexConfig flywheelFollowerConfig = new SparkFlexConfig();
-    public static final SparkFlexConfig feederConfig = new SparkFlexConfig();
+  public static final class indexSubsystem {
+    
+    public static final SparkMaxConfig indexConfig = new SparkMaxConfig();
+
 
     static {
       // Configure basic setting of the flywheel motors
-      flywheelConfig
+      indexConfig
         .inverted(true)
         .idleMode(IdleMode.kCoast)
         .closedLoopRampRate(1.0)
         .openLoopRampRate(1.0)
-        .smartCurrentLimit(80);
+        .smartCurrentLimit(40);
+    }}
 
-      /*
-       * Configure the closed loop controller. We want to make sure we set the
-       * feedback sensor as the primary encoder.
-       */
-      flywheelConfig
-        .closedLoop
-          .feedbackSensor(FeedbackSensor.kPrimaryEncoder)
-          // Set PID values for position control
-          .p(0.0002)
-          .outputRange(-1, 1);
+public static final class pivotSubsystem {
 
-      flywheelConfig.closedLoop
-        .maxMotion
-          // Set MAXMotion parameters for MAXMotion Velocity control
-          .cruiseVelocity(5000)
-          .maxAcceleration(10000)
-          .allowedProfileError(1);
-
-      // Constants.NeoMotorConstants.kVortexKv is in rpm/V. feedforward.kV is in V/rpm sort we take
-      // the reciprocol.
-      flywheelConfig.closedLoop
-        .feedForward.kV(nominalVoltage / Constants.NeoMotorConstants.kVortexKv);
-
-      // Configure the follower flywheel motor to follow the main flywheel motor
-     
-      
-
-      // Configure basic setting of the feeder motor
-      feederConfig
+ public static final SparkMaxConfig pivotConfig = new SparkMaxConfig();
+       static {
+  pivotConfig
         .inverted(true)
         .idleMode(IdleMode.kCoast)
+        .closedLoopRampRate(1.0)
         .openLoopRampRate(1.0)
-        .smartCurrentLimit(60);
-    }
-  }
+        .smartCurrentLimit(40);
 
-}
+     
+    }
+  }}
+
+
+
+
+

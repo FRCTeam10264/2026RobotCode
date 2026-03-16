@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.0,
-        "y": 6.0
+        "x": 1.002961460446247,
+        "y": 0.6958417849898593
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.25,
-        "y": 6.0
+        "x": 2.980699797160243,
+        "y": 3.9154158215010133
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "outpost run 0"
     },
     {
       "anchor": {
-        "x": 3.53262677484787,
-        "y": 6.0
+        "x": 2.880957943925233,
+        "y": 3.891565420560749
       },
       "prevControl": {
-        "x": 3.28262677484787,
-        "y": 6.0
+        "x": 0.9937626774847863,
+        "y": 0.6958417849898595
       },
       "nextControl": null,
       "isLocked": false,
@@ -33,20 +33,37 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
-      "name": "mainfly",
-      "waypointRelativePos": 0,
+      "name": "mainfly1",
+      "waypointRelativePos": 0.0,
       "endWaypointRelativePos": 1.0,
       "command": {
         "type": "named",
         "data": {
-          "name": "mainfly"
+          "name": "intakerollers"
+        }
+      }
+    },
+    {
+      "name": "mainfly2",
+      "waypointRelativePos": 0.0,
+      "endWaypointRelativePos": 1.0,
+      "command": null
+    },
+    {
+      "name": "index",
+      "waypointRelativePos": 1.0,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "index"
         }
       }
     }
   ],
   "globalConstraints": {
-    "maxVelocity": 0.1,
-    "maxAcceleration": 0.1,
+    "maxVelocity": 0.8,
+    "maxAcceleration": 0.8,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -54,13 +71,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 2.038514276752066
+    "rotation": 0.0
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 2.3859440303887083
   },
   "useDefaultConstraints": false
 }

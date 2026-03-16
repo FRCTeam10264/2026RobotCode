@@ -6,9 +6,12 @@ package frc.robot.subsystems;
 
 import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.PersistMode;
+import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Configs;
 import frc.robot.Constants.MechanismConstants;
 
 
@@ -19,7 +22,8 @@ public class Intakepivot extends SubsystemBase {
 
 
   public Intakepivot() {intakepivioController = IntakepivotSparkMax.getClosedLoopController();
-
+ ///IntakepivotSparkMax.configure(Configs.pivotSubsystem.pivotConfig, ResetMode.kResetSafeParameters,
+      ///  PersistMode.kPersistParameters);
 
   }
 

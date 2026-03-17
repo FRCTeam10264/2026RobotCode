@@ -75,15 +75,12 @@ public class RobotContainer {
         ///NamedCommands.registerCommand("shoot sidewall", new shootersidewall(m_bshooterHS));
         //NamedCommands.registerCommand("shoot tower", new shootertower(m_bshooterHS));
         NamedCommands.registerCommand("climbtower", new endgameT(m_endgame));
-        NamedCommands.registerCommand("pivotpos1", new pivotpos1(m_Intakepivot));
-        NamedCommands.registerCommand("pivotpos2", new pivotpos2(m_Intakepivot));
-        NamedCommands.registerCommand("pivotpos3", new pivotpos3(m_Intakepivot));
         NamedCommands.registerCommand("pivotdown", new pivotdown(m_Intakepivot));
         NamedCommands.registerCommand("pivotup", new pivotup(m_Intakepivot));
         NamedCommands.registerCommand("intakerollers", new IntakeN(m_intake));
         NamedCommands.registerCommand("index", new indexe(m_index));
-        NamedCommands.registerCommand("mainfly", new flywheel1other(m_Flywheel1));
-         NamedCommands.registerCommand("mainfly", new flywheel2other(m_Flywheel2));
+        NamedCommands.registerCommand("mainfly1", new flywheel1ramp(m_Flywheel1));
+         NamedCommands.registerCommand("mainfly2", new flywheel2ramp(m_Flywheel2));
 
 
         // new EventTrigger("shoot note").and(new Trigger(exampleSubsystem::someCondition)).onTrue(Commands.print("shoot note");

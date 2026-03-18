@@ -23,14 +23,9 @@ import frc.robot.commands.flywheel1other;
 import frc.robot.commands.flywheel1ramp;
 import frc.robot.commands.flywheel2other;
 import frc.robot.commands.flywheel2ramp;
-import frc.robot.commands.idleflywheel1;
-import frc.robot.commands.idleindexer;
 import frc.robot.commands.indexe;
 import frc.robot.commands.indexerclear;
 import frc.robot.commands.pivotdown;
-import frc.robot.commands.pivotpos1;
-import frc.robot.commands.pivotpos2;
-import frc.robot.commands.pivotpos3;
 import frc.robot.commands.pivotup;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.Index;
@@ -218,15 +213,7 @@ m_driverController.getRightX(), OIConstants.kDriveDeadband);
 
     m_CoDriverController.a().whileTrue(new endgameout(m_endgame));
 
-    m_CoDriverController.povUp().whileTrue(new pivotpos1(m_Intakepivot));
-    m_CoDriverController.povDown().whileTrue(new pivotpos2(m_Intakepivot));
-    m_CoDriverController.povRight().whileTrue(new pivotpos3(m_Intakepivot));
 
-  
-
-
-    m_CoDriverController.start().onTrue(new idleindexer(m_index));
-    m_CoDriverController.start().onTrue(new idleflywheel1(m_Flywheel1));
 
   
 

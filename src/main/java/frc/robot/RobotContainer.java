@@ -4,29 +4,41 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
+
 import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OIConstants;
-import frc.robot.subsystems.*;
-import frc.robot.commands.*;
-import com.pathplanner.lib.auto.AutoBuilder;
-import com.pathplanner.lib.auto.NamedCommands;
-import com.pathplanner.lib.commands.PathPlannerAuto;
-import com.pathplanner.lib.events.EventTrigger;
-import com.pathplanner.lib.events.PointTowardsZoneTrigger;
-import com.pathplanner.lib.path.GoalEndState;
-import com.pathplanner.lib.path.PathConstraints;
-import com.pathplanner.lib.path.PathPlannerPath;
-import com.pathplanner.lib.path.Waypoint;
+import frc.robot.commands.IntakeN;
+import frc.robot.commands.endgameT;
+import frc.robot.commands.endgameout;
+import frc.robot.commands.flywheel1other;
+import frc.robot.commands.flywheel1ramp;
+import frc.robot.commands.flywheel2other;
+import frc.robot.commands.flywheel2ramp;
+import frc.robot.commands.idleflywheel1;
+import frc.robot.commands.idleindexer;
+import frc.robot.commands.indexe;
+import frc.robot.commands.indexerclear;
+import frc.robot.commands.pivotdown;
+import frc.robot.commands.pivotpos1;
+import frc.robot.commands.pivotpos2;
+import frc.robot.commands.pivotpos3;
+import frc.robot.commands.pivotup;
+import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.Index;
+import frc.robot.subsystems.Intakepivot;
+import frc.robot.subsystems.endgame;
+import frc.robot.subsystems.flywheel1;
+import frc.robot.subsystems.flywheel2;
+import frc.robot.subsystems.intakerollers;
 
 
 
@@ -38,7 +50,9 @@ public class RobotContainer {
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
   private final SendableChooser<Command> autoChooser;
 
-
+private final SlewRateLimiter xLimiter = new SlewRateLimiter(3.0);
+private final SlewRateLimiter yLimiter = new SlewRateLimiter(3.0);
+private final SlewRateLimiter rotLimiter = new SlewRateLimiter(4.0);
   private final Index m_index = new Index();
   //private final Bshooterwheel m_bshooterHS = new Bshooterwheel();
   private final intakerollers m_intake = new intakerollers();
@@ -89,6 +103,23 @@ public class RobotContainer {
        // new PointTowardsZoneTrigger("Speaker").whileTrue(Commands.print("aiming at speaker"));
 
 
+double x = -MathUtil.applyDeadband(
+m_driverController.getLeftY(), OIConstants.kDriveDeadband);
+
+double y = -MathUtil.applyDeadband(
+m_driverController.getLeftX(), OIConstants.kDriveDeadband);
+
+double rot = -MathUtil.applyDeadband(
+m_driverController.getRightX(), OIConstants.kDriveDeadband);
+
+
+ x = xLimiter.calculate(x);
+ y = yLimiter.calculate(y);
+ rot = rotLimiter.calculate(rot);
+
+ m_robotDrive.drive(x, y, rot, true);
+
+
 
 
         
@@ -112,12 +143,13 @@ public class RobotContainer {
                         m_driverController.getRightX(), OIConstants.kDriveDeadband),
                     true),
             m_robotDrive).withName("Robot Drive Default"));
-    // For convenience a programmer could change this when going to competition.
+
+
+
+
     boolean isCompetition = true;
 
-    // Build an auto chooser. This will use Commands.none() as the default option.
-    // As an example, this will only show autos that start with "comp" while at
-    // competition as defined by the programmer
+   
     autoChooser = AutoBuilder.buildAutoChooser(
     );
 

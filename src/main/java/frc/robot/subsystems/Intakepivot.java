@@ -60,12 +60,12 @@ public void intakepos1(double angle){
 
   }
   public void intakepos2(double angle){
-  intakepivioController.setSetpoint(.25, ControlType.kPosition,ClosedLoopSlot.kSlot0);
+  intakepivioController.setSetpoint(-5, ControlType.kPosition,ClosedLoopSlot.kSlot0);
   System.out.println("intakepos2");
 
   }
   public void intakepos3(double angle){
-  intakepivioController.setSetpoint(.15, ControlType.kPosition,ClosedLoopSlot.kSlot0);
+  intakepivioController.setSetpoint(-10, ControlType.kPosition,ClosedLoopSlot.kSlot0);
   System.out.println("intakepos3");
 
   }

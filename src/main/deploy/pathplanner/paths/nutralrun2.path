@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.0517133956386293,
-        "y": 4.000848909657321
+        "x": 2.491635514018691,
+        "y": 3.1948831775700945
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.953302180685359,
-        "y": 2.327445482866044
+        "x": 3.3932242990654204,
+        "y": 1.5214797507788171
       },
       "isLocked": false,
       "linkedName": "nutralrun1"
@@ -48,7 +48,7 @@
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -84.55966796899452
   },
   "useDefaultConstraints": true
 }

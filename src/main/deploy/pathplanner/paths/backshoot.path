@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.442109533468559,
-        "y": 2.737971602434077
+        "x": 3.4885223037544337,
+        "y": 3.9120560747663555
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.115793334091612,
-        "y": 2.1095915401287813
+        "x": 3.2385481166585004,
+        "y": 3.908463612417596
       },
       "isLocked": false,
-      "linkedName": "nutralrun0"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 2.491635514018691,
-        "y": 3.1948831775700945
+        "x": 3.0995249221183805,
+        "y": 3.9120560747663555
       },
       "prevControl": {
-        "x": 2.764844236760125,
-        "y": 2.4435591900311535
+        "x": 3.3493887006104783,
+        "y": 3.920307874427758
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "nutralrun1"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -55,36 +55,25 @@
           ]
         }
       }
-    },
-    {
-      "name": "intakerollers",
-      "waypointRelativePos": 0.0,
-      "endWaypointRelativePos": 0.10272319889689945,
-      "command": {
-        "type": "named",
-        "data": {
-          "name": "intakerollers"
-        }
-      }
     }
   ],
   "globalConstraints": {
-    "maxVelocity": 1.2,
-    "maxAcceleration": 1.2,
-    "maxAngularVelocity": 75.0,
-    "maxAngularAcceleration": 75.0,
+    "maxVelocity": 0.25,
+    "maxAcceleration": 0.25,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
     "unlimited": false
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -84.55966796899452
+    "rotation": 0.0
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -112.98871680212075
+    "rotation": 0.0
   },
   "useDefaultConstraints": false
 }

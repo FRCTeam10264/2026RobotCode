@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7361967545638937,
-        "y": 0.6958417849898593
+        "x": 0.86497971602434,
+        "y": 0.6866430020283985
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.6925,
-        "y": 2.4572196261682255
+        "x": 1.821282961460446,
+        "y": 2.4480208432067645
       },
       "isLocked": false,
       "linkedName": "outpost run 0"
     },
     {
       "anchor": {
-        "x": 3.327591010834841,
-        "y": 3.411849249845825
+        "x": 3.2750608519269777,
+        "y": 3.4278803245436107
       },
       "prevControl": {
-        "x": 1.6294435959615783,
-        "y": 2.4423165395654522
+        "x": 1.5769134370537152,
+        "y": 2.458347614263238
       },
       "nextControl": null,
       "isLocked": false,
@@ -57,10 +57,15 @@
       }
     },
     {
-      "name": "index",
-      "waypointRelativePos": 1.0,
-      "endWaypointRelativePos": null,
-      "command": null
+      "name": "pivotup",
+      "waypointRelativePos": 0.49807507218479186,
+      "endWaypointRelativePos": 1.0,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "pivotup"
+        }
+      }
     }
   ],
   "globalConstraints": {
@@ -79,7 +84,7 @@
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 2.3859440303887083
+    "rotation": 0.0
   },
   "useDefaultConstraints": false
 }

@@ -121,11 +121,25 @@ SmartDashboard.putNumber("encoder",m_frontLeft.getPosition().distanceMeters);
    * @param rot Angular rate of the robot.
    * @param fieldRelative Whether the provided x and y speeds are relative to the field.
    */
-  public void drive(double xSpeed, double ySpeed, double rot, boolean fieldRelative) {
+  public void drive(double xSpeed, double ySpeed, double rot, boolean fieldRelative, boolean teleop) {
+   double xSpeedDelivered = xSpeed ;
+    double ySpeedDelivered = ySpeed ;
+    double rotDelivered = rot ;
+   
+   
+    if (teleop) {
+    xSpeedDelivered = xSpeed * DriveConstants.kMaxSpeedMetersPerSecond;
+    ySpeedDelivered = ySpeed * DriveConstants.kMaxSpeedMetersPerSecond;
+    rotDelivered = rot * DriveConstants.kMaxAngularSpeed;
+}
+else{
+     xSpeedDelivered = xSpeed ;
+     ySpeedDelivered = ySpeed ;
+     rotDelivered = rot ;
+}
+    
     // Convert the commanded speeds into the correct units for the drivetrain
-    double xSpeedDelivered = xSpeed * DriveConstants.kMaxSpeedMetersPerSecond;
-    double ySpeedDelivered = ySpeed * DriveConstants.kMaxSpeedMetersPerSecond;
-    double rotDelivered = rot * DriveConstants.kMaxAngularSpeed;
+  
 
     var swerveModuleStates =
         DriveConstants.kDriveKinematics.toSwerveModuleStates(
@@ -177,7 +191,9 @@ SmartDashboard.putNumber("encoder",m_frontLeft.getPosition().distanceMeters);
     m_rearRight.resetEncoders();
   }
 public ChassisSpeeds getRobotRelativeSpeeds() {return DriveConstants.kDriveKinematics.toChassisSpeeds(m_frontLeft.getState(),m_frontRight.getState(),m_rearLeft.getState(),m_rearRight.getState());}
-public void driveRobotRelative(ChassisSpeeds speeds) {this.drive(speeds.vxMetersPerSecond,speeds.vyMetersPerSecond,speeds.omegaRadiansPerSecond,false);}
+public void driveRobotRelative(ChassisSpeeds speeds) 
+{this.drive(speeds.vxMetersPerSecond,speeds.vyMetersPerSecond,speeds.omegaRadiansPerSecond,
+  false,false);}
   /** Zeroes the heading of the robot. */
   public Command zeroHeadingCommand() {
     return this.runOnce(() -> m_gyro.reset());

@@ -64,7 +64,7 @@ public final class Autos {
     drive.resetOdometry(exampleTrajectory.getInitialPose());
 
     // Run path following command, then stop at the end.
-    return swerveControllerCommand.andThen(() -> drive.drive(0, 0, 0, false));
+    return swerveControllerCommand.andThen(() -> drive.drive(0, 0, 0, false,false));
   }
 
   private Autos() {

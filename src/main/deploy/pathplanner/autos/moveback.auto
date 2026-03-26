@@ -7,13 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "outpost run 0"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "outpost run 1"
+            "pathName": "backshoot"
           }
         },
         {
@@ -31,24 +25,11 @@
                 "data": {
                   "name": "mainfly2"
                 }
-              }
-            ]
-          }
-        },
-        {
-          "type": "race",
-          "data": {
-            "commands": [
+              },
               {
                 "type": "named",
                 "data": {
                   "name": "index"
-                }
-              },
-              {
-                "type": "wait",
-                "data": {
-                  "waitTime": 10.0
                 }
               }
             ]

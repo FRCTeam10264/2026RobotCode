@@ -45,9 +45,9 @@ public class RobotContainer {
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
   private final SendableChooser<Command> autoChooser;
 
-private final SlewRateLimiter xLimiter = new SlewRateLimiter(3.0);
-private final SlewRateLimiter yLimiter = new SlewRateLimiter(3.0);
-private final SlewRateLimiter rotLimiter = new SlewRateLimiter(4.0);
+private final SlewRateLimiter xLimiter = new SlewRateLimiter(8.0);
+private final SlewRateLimiter yLimiter = new SlewRateLimiter(8.0);
+private final SlewRateLimiter rotLimiter = new SlewRateLimiter(3.0);
   private final Index m_index = new Index();
   //private final Bshooterwheel m_bshooterHS = new Bshooterwheel();
   private final intakerollers m_intake = new intakerollers();
@@ -112,7 +112,7 @@ m_driverController.getRightX(), OIConstants.kDriveDeadband);
  y = yLimiter.calculate(y);
  rot = rotLimiter.calculate(rot);
 
- m_robotDrive.drive(x, y, rot, true);
+ m_robotDrive.drive(x, y, rot, true,true);
 
 
 
@@ -136,7 +136,7 @@ m_driverController.getRightX(), OIConstants.kDriveDeadband);
                         m_driverController.getLeftX(), OIConstants.kDriveDeadband),
                     -MathUtil.applyDeadband(
                         m_driverController.getRightX(), OIConstants.kDriveDeadband),
-                    true),
+                    true,true),
             m_robotDrive).withName("Robot Drive Default"));
 
 

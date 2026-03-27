@@ -8,10 +8,13 @@ import com.revrobotics.spark.ClosedLoopSlot;
 import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.PersistMode;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
+import edu.wpi.first.math.kinematics.SwerveModuleState;
+import com.revrobotics.jni.DetachedEncoderJNI;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Configs;
@@ -54,13 +57,17 @@ IntakepivotSparkMax.configure(config, ResetMode.kResetSafeParameters, PersistMod
     IntakepivotSparkMax.stopMotor();
   }
 
+
+  
+
+
 public void intakepos1(double angle){
   intakepivioController.setSetpoint(0, ControlType.kPosition,ClosedLoopSlot.kSlot0);
   System.out.println("intakepos1");
 
   }
   public void intakepos2(double angle){
-  intakepivioController.setSetpoint(-5, ControlType.kPosition,ClosedLoopSlot.kSlot0);
+  intakepivioController.setSetpoint(-20, ControlType.kPosition,ClosedLoopSlot.kSlot0);
   System.out.println("intakepos2");
 
   }

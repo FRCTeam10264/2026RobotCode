@@ -11,9 +11,13 @@ import com.revrobotics.PersistMode;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkBase.ControlType;
+import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+
 import com.revrobotics.jni.DetachedEncoderJNI;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -26,10 +30,7 @@ public class Intakepivot extends SubsystemBase {
   private SparkMax IntakepivotSparkMax = new SparkMax(MechanismConstants.kintakepivotPort, MotorType.kBrushless);
   private SparkClosedLoopController intakepivioController;
 private SparkMaxConfig config = new SparkMaxConfig();
-
-
-
-
+  
 
   public Intakepivot() {intakepivioController = IntakepivotSparkMax.getClosedLoopController();
  ///IntakepivotSparkMax.configure(Configs.pivotSubsystem.pivotConfig, ResetMode.kResetSafeParameters,
@@ -62,6 +63,7 @@ IntakepivotSparkMax.configure(config, ResetMode.kResetSafeParameters, PersistMod
 
 
 public void intakepos1(double angle){
+   
   intakepivioController.setSetpoint(0, ControlType.kPosition,ClosedLoopSlot.kSlot0);
   System.out.println("intakepos1");
 
@@ -76,4 +78,5 @@ public void intakepos1(double angle){
   System.out.println("intakepos3");
 
   }
+ 
 }

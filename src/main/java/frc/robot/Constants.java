@@ -121,8 +121,5 @@ public final class Constants {
   //public static final int kBrollersshooterPort = 15;
 
  }
- public static final class RobotConfig {
-
-  }
 }
 

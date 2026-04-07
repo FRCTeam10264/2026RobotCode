@@ -32,6 +32,7 @@ public class Intakepivot extends SubsystemBase {
 private SparkMaxConfig config = new SparkMaxConfig();
   
 
+
   public Intakepivot() {intakepivioController = IntakepivotSparkMax.getClosedLoopController();
  ///IntakepivotSparkMax.configure(Configs.pivotSubsystem.pivotConfig, ResetMode.kResetSafeParameters,
       ///  PersistMode.kPersistParameters);
@@ -64,17 +65,17 @@ IntakepivotSparkMax.configure(config, ResetMode.kResetSafeParameters, PersistMod
 
 public void intakepos1(double angle){
    
-  intakepivioController.setSetpoint(0, ControlType.kPosition,ClosedLoopSlot.kSlot0);
+  intakepivioController.setSetpoint(0, SparkBase.ControlType.kPosition);
   System.out.println("intakepos1");
 
   }
   public void intakepos2(double angle){
-  intakepivioController.setSetpoint(-20, ControlType.kPosition,ClosedLoopSlot.kSlot0);
+  intakepivioController.setSetpoint(-20, SparkBase.ControlType.kPosition);
   System.out.println("intakepos2");
 
   }
   public void intakepos3(double angle){
-  intakepivioController.setSetpoint(-10, ControlType.kPosition,ClosedLoopSlot.kSlot0);
+  intakepivioController.setSetpoint(-10, SparkBase.ControlType.kPosition);
   System.out.println("intakepos3");
 
   }

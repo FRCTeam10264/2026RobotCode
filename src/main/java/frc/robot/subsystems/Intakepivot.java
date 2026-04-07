@@ -70,12 +70,12 @@ public void intakepos1(double angle){
 
   }
   public void intakepos2(double angle){
-  intakepivioController.setSetpoint(-20, SparkBase.ControlType.kPosition);
+  intakepivioController.setSetpoint(-10, SparkBase.ControlType.kPosition);
   System.out.println("intakepos2");
 
   }
   public void intakepos3(double angle){
-  intakepivioController.setSetpoint(-10, SparkBase.ControlType.kPosition);
+  intakepivioController.setSetpoint(-20, SparkBase.ControlType.kPosition);
   System.out.println("intakepos3");
 
   }

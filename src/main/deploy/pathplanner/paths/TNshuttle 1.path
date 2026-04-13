@@ -3,14 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-<<<<<<<< HEAD:src/main/deploy/pathplanner/paths/TNshuttle 1.path
         "x": 8.21135775862069,
         "y": 3.1358189655172417
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.6989870689655184,
-        "y": 2.4223383620689667
+        "x": 9.21135775862069,
+        "y": 3.1358189655172413
       },
       "isLocked": false,
       "linkedName": "TNshuttle 0"
@@ -21,29 +20,8 @@
         "y": 1.161530172413793
       },
       "prevControl": {
-        "x": 2.8553663793103454,
-        "y": 2.1095797413793105
-========
-        "x": 0.45,
-        "y": 6.205912778904665
-      },
-      "prevControl": null,
-      "nextControl": {
-        "x": 1.4500000000000002,
-        "y": 6.205912778904665
-      },
-      "isLocked": false,
-      "linkedName": "mid depo 0"
-    },
-    {
-      "anchor": {
-        "x": 3.2,
-        "y": 4.053
-      },
-      "prevControl": {
-        "x": 2.2,
-        "y": 4.053
->>>>>>>> 9eeffbda47f134739b590bb66dfe04da651d3c0a:src/main/deploy/pathplanner/paths/mid depo 1.path
+        "x": -0.07982758620689623,
+        "y": 1.1615301724137925
       },
       "nextControl": null,
       "isLocked": false,
@@ -80,13 +58,8 @@
     }
   ],
   "globalConstraints": {
-<<<<<<<< HEAD:src/main/deploy/pathplanner/paths/TNshuttle 1.path
-    "maxVelocity": 1.0,
-    "maxAcceleration": 1.0,
-========
-    "maxVelocity": 0.4,
-    "maxAcceleration": 0.4,
->>>>>>>> 9eeffbda47f134739b590bb66dfe04da651d3c0a:src/main/deploy/pathplanner/paths/mid depo 1.path
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -94,11 +67,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-<<<<<<<< HEAD:src/main/deploy/pathplanner/paths/TNshuttle 1.path
     "rotation": -90.0
-========
-    "rotation": 0.0
->>>>>>>> 9eeffbda47f134739b590bb66dfe04da651d3c0a:src/main/deploy/pathplanner/paths/mid depo 1.path
   },
   "reversed": false,
   "folder": null,
@@ -106,5 +75,5 @@
     "velocity": 0,
     "rotation": -90.0
   },
-  "useDefaultConstraints": false
+  "useDefaultConstraints": true
 }

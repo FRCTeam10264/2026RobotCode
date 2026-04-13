@@ -1,0 +1,50 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "shuttle depo 0"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "shuttle depo 1"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "mainfly1"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "mainfly2"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "index"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}

@@ -3,51 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-<<<<<<<< HEAD:src/main/deploy/pathplanner/paths/TNshuttle 1.path
-        "x": 8.21135775862069,
-        "y": 3.1358189655172417
+        "x": 3.513649139203501,
+        "y": 4.02452068098282
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.6989870689655184,
-        "y": 2.4223383620689667
+        "x": 2.5973864161828235,
+        "y": 4.02452068098282
       },
       "isLocked": false,
-      "linkedName": "TNshuttle 0"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 0.920172413793104,
-        "y": 1.161530172413793
-      },
-      "prevControl": {
-        "x": 2.8553663793103454,
-        "y": 2.1095797413793105
-========
-        "x": 0.45,
+        "x": 0.4,
         "y": 6.205912778904665
       },
-      "prevControl": null,
-      "nextControl": {
-        "x": 1.4500000000000002,
-        "y": 6.205912778904665
-      },
-      "isLocked": false,
-      "linkedName": "mid depo 0"
-    },
-    {
-      "anchor": {
-        "x": 3.2,
-        "y": 4.053
-      },
       "prevControl": {
-        "x": 2.2,
-        "y": 4.053
->>>>>>>> 9eeffbda47f134739b590bb66dfe04da651d3c0a:src/main/deploy/pathplanner/paths/mid depo 1.path
+        "x": 1.343537713119895,
+        "y": 6.205912778904665
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "TNshuttle 1"
+      "linkedName": "shuttle depo 0"
     }
   ],
   "rotationTargets": [],
@@ -80,13 +58,8 @@
     }
   ],
   "globalConstraints": {
-<<<<<<<< HEAD:src/main/deploy/pathplanner/paths/TNshuttle 1.path
     "maxVelocity": 1.0,
     "maxAcceleration": 1.0,
-========
-    "maxVelocity": 0.4,
-    "maxAcceleration": 0.4,
->>>>>>>> 9eeffbda47f134739b590bb66dfe04da651d3c0a:src/main/deploy/pathplanner/paths/mid depo 1.path
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -94,17 +67,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-<<<<<<<< HEAD:src/main/deploy/pathplanner/paths/TNshuttle 1.path
-    "rotation": -90.0
-========
     "rotation": 0.0
->>>>>>>> 9eeffbda47f134739b590bb66dfe04da651d3c0a:src/main/deploy/pathplanner/paths/mid depo 1.path
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -90.0
+    "rotation": 0.0
   },
   "useDefaultConstraints": false
 }

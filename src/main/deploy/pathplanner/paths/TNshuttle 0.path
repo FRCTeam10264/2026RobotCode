@@ -1,0 +1,93 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.61771551724138,
+        "y": 2.2170905172413793
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.471109913793104,
+        "y": 0.6826185344827584
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 4.380064655172415,
+        "y": 0.516465517241379
+      },
+      "prevControl": {
+        "x": 3.5786206896551738,
+        "y": 0.5164655172413791
+      },
+      "nextControl": {
+        "x": 7.398748040134497,
+        "y": 0.516465517241379
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.21135775862069,
+        "y": 3.1358189655172417
+      },
+      "prevControl": {
+        "x": 8.592532327586207,
+        "y": 0.4285021551724144
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "TNshuttle 0"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "pivotdown",
+      "waypointRelativePos": 0,
+      "endWaypointRelativePos": 0.10309278350515655,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "pivotdown"
+        }
+      }
+    },
+    {
+      "name": "intakerollers",
+      "waypointRelativePos": 1.0721649484536053,
+      "endWaypointRelativePos": 2.0,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "intakerollers"
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 1.0,
+    "maxAcceleration": 1.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -90.0
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -90.0
+  },
+  "useDefaultConstraints": false
+}

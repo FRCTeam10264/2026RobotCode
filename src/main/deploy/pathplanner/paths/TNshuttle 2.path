@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.307219626168224,
-        "y": 5.6059501557632405
+        "x": 0.920172413793104,
+        "y": 1.161530172413793
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.3919704049844235,
-        "y": 5.649034267912774
+        "x": 1.1682418829715209,
+        "y": 1.1925388560610948
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "TNshuttle 1"
     },
     {
       "anchor": {
-        "x": 1.7881230529595014,
-        "y": 5.6059501557632405
+        "x": 0.920172413793104,
+        "y": 1.161530172413793
       },
       "prevControl": {
-        "x": 2.730552959501557,
-        "y": 5.560241433021808
+        "x": 0.67681812170971,
+        "y": 1.2187900058451802
       },
       "nextControl": null,
       "isLocked": false,
@@ -33,9 +33,9 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
-      "name": "pivotup",
-      "waypointRelativePos": 0.0,
-      "endWaypointRelativePos": 0.4901758014477777,
+      "name": "mainfly",
+      "waypointRelativePos": 0,
+      "endWaypointRelativePos": 1.0,
       "command": {
         "type": "parallel",
         "data": {
@@ -58,22 +58,22 @@
     }
   ],
   "globalConstraints": {
-    "maxVelocity": 0.1,
-    "maxAcceleration": 0.1,
-    "maxAngularVelocity": 540.0,
-    "maxAngularAcceleration": 720.0,
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 20.0,
+    "maxAngularAcceleration": 20.0,
     "nominalVoltage": 12.0,
     "unlimited": false
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 2.038514276752066
+    "rotation": 38.01043441415979
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -90.0
   },
   "useDefaultConstraints": false
 }

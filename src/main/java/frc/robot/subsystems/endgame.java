@@ -14,9 +14,7 @@ public class endgame extends SubsystemBase {
   public double endgameSpeed = .4;
   private SparkMax endgameSparkMax = new SparkMax(MechanismConstants.kendgamePort, MotorType.kBrushless);
   
-   public endgame() {
-
-  }
+   public endgame() {}
 
   public void endgameRun(double speed) {
     endgameSparkMax.set(speed);

@@ -15,10 +15,7 @@ public class flywheel1 extends SubsystemBase {
   public double flywheel1sidewallSpeed = -.76;
   private SparkMax flywheel1SparkMax = new SparkMax(MechanismConstants.kflywheel1ShooterPort, MotorType.kBrushless);
 
-  
-   public flywheel1() {
-
-  }
+   public flywheel1() {}
 
   public void flywheel1Run(double speed) {
     flywheel1SparkMax.set(speed);

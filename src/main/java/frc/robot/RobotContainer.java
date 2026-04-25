@@ -6,7 +6,6 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
-
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.wpilibj.RobotController;
@@ -17,18 +16,12 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.IntakeN;
-import frc.robot.commands.endgameT;
-import frc.robot.commands.endgameout;
 import frc.robot.commands.flywheel1other;
 import frc.robot.commands.flywheel1ramp;
 import frc.robot.commands.flywheel2other;
 import frc.robot.commands.flywheel2ramp;
 import frc.robot.commands.indexe;
-import frc.robot.commands.indexerclear;
 import frc.robot.commands.pivotdown;
-import frc.robot.commands.pivotpos1;
-import frc.robot.commands.pivotpos2;
-import frc.robot.commands.pivotpos3;
 import frc.robot.commands.pivotup;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.Index;
@@ -37,10 +30,6 @@ import frc.robot.subsystems.endgame;
 import frc.robot.subsystems.flywheel1;
 import frc.robot.subsystems.flywheel2;
 import frc.robot.subsystems.intakerollers;
-
-
-
-
 
 
 public class RobotContainer {
@@ -79,14 +68,6 @@ private final SlewRateLimiter rotLimiter = new SlewRateLimiter(3.0);
   public RobotContainer() {
 
 
-     ///DriveSubsystem m_robotDrive = new DriveSubsystem();
-        //exampleSubsystem = new ExampleSubsystem(); inilisation command if ones above dont work
-
-        // Register Named Commands
-      
-        ///NamedCommands.registerCommand("shoot sidewall", new shootersidewall(m_bshooterHS));
-        //NamedCommands.registerCommand("shoot tower", new shootertower(m_bshooterHS));
-        NamedCommands.registerCommand("climbtower", new endgameT(m_endgame));
         NamedCommands.registerCommand("pivotdown", new pivotdown(m_Intakepivot));
         NamedCommands.registerCommand("pivotup", new pivotup(m_Intakepivot));
         NamedCommands.registerCommand("intakerollers", new IntakeN(m_intake));
@@ -152,76 +133,25 @@ m_driverController.getRightX(), OIConstants.kDriveDeadband);
     );
 
     SmartDashboard.putData("Auto Chooser", autoChooser);
-  
-    
   }
 
-
-
-  
-
-
-
-
-
-
-
-    
-
-    // ...
-
-    // Build an auto chooser. This will use Commands.none() as the default option.
-    
-
-    // Another option that allows you to specify the default auto by its name
-    // autoChooser = AutoBuilder.buildAutoChooser("My Default Auto");
-
-   
-  
-
-  
   private void configureBindings() {
     
 
     m_driverController.leftStick().whileTrue(m_robotDrive.setXCommand());
     m_driverController.start().onTrue(m_robotDrive.zeroHeadingCommand());
-
     m_driverController.rightBumper().whileTrue(new indexe(m_index));
     m_driverController.leftBumper().whileTrue(new indexe(m_index));
-
-   /// m_driverController.rightTrigger().toggleOnTrue(new shootersidewall(m_bshooterHS));
     m_driverController.rightTrigger().toggleOnTrue(new flywheel1other(m_Flywheel1));
     m_driverController.rightTrigger().toggleOnTrue(new flywheel2other(m_Flywheel2));
-  
-    ///m_driverController.leftTrigger().toggleOnTrue(new shootertower(m_bshooterHS));
     m_driverController.leftTrigger().toggleOnTrue(new flywheel1ramp(m_Flywheel1));
     m_driverController.leftTrigger().toggleOnTrue(new flywheel2ramp(m_Flywheel2));
-   
-    m_driverController.x().whileTrue(new indexerclear(m_index));
-   // m_driverController.x().whileTrue(new flywheel1clear(m_Flywheel1));
-
-
     m_driverController.leftStick().whileTrue(m_robotDrive.setXCommand());
     m_driverController.start().onTrue(m_robotDrive.zeroHeadingCommand());
 
-    m_CoDriverController.x().whileTrue(new indexerclear(m_index));
-    //m_CoDriverController.x().whileTrue(new flywheel1clear(m_Flywheel1));
-
     m_CoDriverController.leftBumper().toggleOnTrue(new IntakeN(m_intake));
-
     m_CoDriverController.rightBumper().whileTrue(new pivotup(m_Intakepivot));
     m_CoDriverController.rightTrigger().whileTrue(new pivotdown(m_Intakepivot));
 
-    m_CoDriverController.y().whileTrue(new endgameT(m_endgame));
-
-    m_CoDriverController.a().whileTrue(new endgameout(m_endgame));
-
-       m_CoDriverController.povUp().whileTrue(new pivotpos1(m_Intakepivot));
-       m_CoDriverController.povDown().whileTrue(new pivotpos2(m_Intakepivot));
-       m_CoDriverController.povRight().whileTrue(new pivotpos3(m_Intakepivot));
-
-  
-
-  
-  }
+   }
 }

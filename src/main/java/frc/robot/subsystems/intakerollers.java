@@ -13,9 +13,7 @@ public class intakerollers extends SubsystemBase {
   public double rollerSpeed = 0.8;
   private SparkMax rollerSparkMax = new SparkMax(MechanismConstants.kintakerollersPort, MotorType.kBrushless);
   
-   public intakerollers() {
-
-  }
+   public intakerollers() {}
 
   public void rollerrun(double speed) {
     rollerSparkMax.set(speed);

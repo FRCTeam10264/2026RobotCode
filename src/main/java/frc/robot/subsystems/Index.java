@@ -21,9 +21,6 @@ public class Index extends SubsystemBase {
   private SparkMax indexSparkMax = new SparkMax(MechanismConstants.kIndexShooterPort, MotorType.kBrushless);
   
    public Index() {
-   /// indexSparkMax.configure(Configs.indexSubsystem.indexConfig, ResetMode.kResetSafeParameters,
-     ///   PersistMode.kPersistParameters);
-
   }
 
   public void indexRun(double speed) {

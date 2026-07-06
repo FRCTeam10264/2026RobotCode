@@ -6,6 +6,8 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
+import com.revrobotics.spark.SparkBase.ControlType;
+
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.wpilibj.RobotController;
@@ -26,15 +28,20 @@ import frc.robot.commands.pivotup;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.Index;
 import frc.robot.subsystems.Intakepivot;
-import frc.robot.subsystems.endgame;
+
 import frc.robot.subsystems.flywheel1;
 import frc.robot.subsystems.flywheel2;
 import frc.robot.subsystems.intakerollers;
+import frc.robot.LimelightHelpers;
+import frc.robot.subsystems.MAXSwerveModule;
+import com.revrobotics.spark.SparkClosedLoopController;
+
+
 
 
 public class RobotContainer {
   
-  private final DriveSubsystem m_robotDrive = new DriveSubsystem();
+ public final DriveSubsystem m_robotDrive = new DriveSubsystem();
   private final SendableChooser<Command> autoChooser;
 
 private final SlewRateLimiter xLimiter = new SlewRateLimiter(8.0);
@@ -45,8 +52,17 @@ private final SlewRateLimiter rotLimiter = new SlewRateLimiter(3.0);
   private final intakerollers m_intake = new intakerollers();
   private final flywheel1 m_Flywheel1 = new flywheel1();
   private final Intakepivot m_Intakepivot = new Intakepivot();
-  private final endgame m_endgame = new endgame();
+
   private final flywheel2 m_Flywheel2 = new flywheel2();
+
+
+
+
+
+
+
+
+
 
   // The driver's controller
   private final CommandXboxController m_driverController =
@@ -55,7 +71,9 @@ private final SlewRateLimiter rotLimiter = new SlewRateLimiter(3.0);
       private final CommandXboxController m_CoDriverController =
       new CommandXboxController(OIConstants.kCoDriverControllerPort);
 
- public Command getAutonomousCommand() {
+
+
+      public Command getAutonomousCommand() {
    
   Command command  = autoChooser.getSelected();
   return command;
@@ -68,6 +86,7 @@ private final SlewRateLimiter rotLimiter = new SlewRateLimiter(3.0);
   public RobotContainer() {
 
 
+    
         NamedCommands.registerCommand("pivotdown", new pivotdown(m_Intakepivot));
         NamedCommands.registerCommand("pivotup", new pivotup(m_Intakepivot));
         NamedCommands.registerCommand("intakerollers", new IntakeN(m_intake));
@@ -141,7 +160,7 @@ m_driverController.getRightX(), OIConstants.kDriveDeadband);
     m_driverController.leftStick().whileTrue(m_robotDrive.setXCommand());
     m_driverController.start().onTrue(m_robotDrive.zeroHeadingCommand());
     m_driverController.rightBumper().whileTrue(new indexe(m_index));
-    m_driverController.leftBumper().whileTrue(new indexe(m_index));
+  //  m_driverController.leftBumper().whileTrue(new indexe(m_index));
     m_driverController.rightTrigger().toggleOnTrue(new flywheel1other(m_Flywheel1));
     m_driverController.rightTrigger().toggleOnTrue(new flywheel2other(m_Flywheel2));
     m_driverController.leftTrigger().toggleOnTrue(new flywheel1ramp(m_Flywheel1));
@@ -149,9 +168,51 @@ m_driverController.getRightX(), OIConstants.kDriveDeadband);
     m_driverController.leftStick().whileTrue(m_robotDrive.setXCommand());
     m_driverController.start().onTrue(m_robotDrive.zeroHeadingCommand());
 
-    m_CoDriverController.leftBumper().toggleOnTrue(new IntakeN(m_intake));
-    m_CoDriverController.rightBumper().whileTrue(new pivotup(m_Intakepivot));
-    m_CoDriverController.rightTrigger().whileTrue(new pivotdown(m_Intakepivot));
+    m_driverController.a().toggleOnTrue(new IntakeN(m_intake));
+    m_driverController.povUp().whileTrue(new pivotup(m_Intakepivot));
+    m_driverController.povDown().whileTrue(new pivotdown(m_Intakepivot));
 
-   }
+
+
+
+
+ m_driverController.leftBumper() 
+ .whileTrue(new RunCommand( () -> m_robotDrive.drive(
+      //m_driverController.getLeftY(),
+      LimelightHelpers.getTY("limelight") * -0.02,
+       -m_driverController.getLeftX(),
+       LimelightHelpers.getTX("limelight") * -0.007,
+false, false      
+ ),
+        m_robotDrive 
+        ));
+ 
+ 
+ 
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+    
+ 
+ 
+
+
+
+
+
+    
+ }
 }

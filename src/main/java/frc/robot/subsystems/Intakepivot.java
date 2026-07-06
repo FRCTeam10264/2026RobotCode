@@ -42,4 +42,6 @@ private SparkMaxConfig config = new SparkMaxConfig();
   public void IntakepivotStop() {
     IntakepivotSparkMax.stopMotor();
   }
+
+  
 }

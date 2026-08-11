@@ -55,8 +55,8 @@ public class Robot extends TimedRobot {
 double omegaRps = Units.degreesToRotations(m_robotContainer.m_robotDrive.getTurnRate());
 var llMesurement = LimelightHelpers.getBotPoseEstimate_wpiBlue("limelight");
 
-if (llMesurement != null && llMesurement.tagCount > 0 && Math.abs(omegaRps) <2.0) {
-  m_robotContainer.m_robotDrive.resetOdometry(llMesurement.pose);
+
+
 }
 
 
@@ -64,7 +64,7 @@ if (llMesurement != null && llMesurement.tagCount > 0 && Math.abs(omegaRps) <2.0
 
 
 
-  }
+  
 
   /** This function is called once each time the robot enters Disabled mode. */
   @Override
@@ -83,7 +83,7 @@ m_autonomousCommand = m_robotContainer.getAutonomousCommand();
     if (m_autonomousCommand != null) {
       CommandScheduler.getInstance().schedule(m_autonomousCommand);
 }
- LimelightHelpers.setPipelineIndex("limelight", 0);
+ LimelightHelpers.setPipelineIndex("limelight", 1);
   } 
 
 
@@ -102,7 +102,7 @@ m_autonomousCommand = m_robotContainer.getAutonomousCommand();
       m_autonomousCommand.cancel();
    
 }
- LimelightHelpers.setPipelineIndex("limelight", 1);
+ 
 }
   
 
